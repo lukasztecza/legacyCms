@@ -1,0 +1,73 @@
+html {
+    background-image: url("graphics/sideBackground.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html, html * {
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+body > div.previewContent {
+    text-align: center;
+}
+
+body > div.previewContent > img {
+    display: block;
+    height: 90%;
+    margin: 5px auto 5px auto;
+}
+
+body > div.previewContent > a {
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border-top: 1px solid #6cc86c;
+    border-right: 1px solid #096309;
+    border-bottom: 1px solid #096309;
+    border-left: 1px solid #6cc86c;
+    background: -webkit-linear-gradient(#5cb85c, #449d44);
+    background: -o-linear-gradient(#5cb85c, #449d44);
+    background: -moz-linear-gradient(#5cb85c, #449d44);
+    background: linear-gradient(#5cb85c, #449d44);
+    text-decoration: none;
+    color: #fff;
+}
+
+body > div.previewContent > a:hover {
+    background: -webkit-linear-gradient(#4ea84e, #449d44);
+    background: -o-linear-gradient(#4ea84e, #449d44);
+    background: -moz-linear-gradient(#4ea84e, #449d44);
+    background: linear-gradient(#4ea84e, #449d44);
+}
+
+body > div.previewContent > a:active {
+    border-top: 1px solid #449d44;
+    border-right: 1px solid #449d44;
+    border-bottom: 1px solid #449d44;
+    border-left: 1px solid #449d44;
+    background: #449d44;
+}
+
+@media screen and (max-width: 640px) {
+    html {
+        background-image: none;
+        background-color: #acffac;
+    }
+    
+    body > div.previewContent > a {
+        display: block;
+        padding: 8px 0;
+    }
+    
+    body > div.previewContent > img {
+        width: 100%;
+        height: auto !important;
+        margin: 0 0 5px 0;
+    }
+}

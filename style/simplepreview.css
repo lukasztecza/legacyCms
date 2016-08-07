@@ -1,0 +1,52 @@
+/* Overall */
+html {
+    background-color: #336677;
+}
+
+html, html * {
+    margin: 0;
+    border: none;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 100;
+}
+
+body > div.previewContent {
+    text-align: center;
+}
+
+body > div.previewContent > img {
+    display: block;
+    height: 90%;
+    margin: 5px auto 13px auto;
+}
+
+body > div.previewContent > a  {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    -moz-transition: border-bottom 0.5s;
+    -webkit-transition: border-bottom 0.5s;
+    -o-transition: border-bottom 0.5s;
+    transition: border-bottom 0.5s;
+}
+
+body > div.previewContent > a:hover {
+    border-bottom: 1px solid white;
+}
+
+@media screen and (max-width: 640px) {
+    body > div.previewContent > a {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+    }
+    
+    body > div.previewContent > img {
+        width: 100%;
+        height: auto !important;
+        margin: 0 0 5px 0;
+    }
+}

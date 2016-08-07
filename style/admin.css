@@ -1,0 +1,79 @@
+body {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+legend {
+    font-size: 1.5em;
+}
+
+p {
+    color: grey;
+    font-style: italic
+}
+
+input[type="number"] {
+    width: 50px;
+}
+
+input[name*="table"] {
+    width: 16%;
+}
+
+input[name*="list"][name*="text"] {
+    width: 60%;
+}
+
+select {
+    max-width: 500px;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+textarea[name="translate_base"], textarea[name="translate_preview"] {
+    background-color: lightgrey;
+}
+
+.twocolumn {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+.fourcolumn {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+}
+
+.leftindent {
+    margin-left:200px;
+}
+
+.hint {
+    color: blue;
+    max-height: 15px;
+    max-width: 50px;
+    overflow: hidden;
+}
+
+.hint:hover {
+    max-height: none;
+    max-width:  none;
+}
+
+.error {
+    color: red;
+    background: linen;
+    text-align: center;
+}
+
+.message {
+    color: green;
+    background: lightgreen;
+    text-align: center;
+}
+
