@@ -1,0 +1,416 @@
+/* Overall */
+@font-face {
+    font-family: "LatoWebLight";
+    src: url("fonts/Lato-Light.eot"); /* IE9 Compat Modes */
+    src: url("fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("fonts/Lato-Light.woff2") format("woff2"), /* Modern Browsers */
+         url("fonts/Lato-Light.woff") format("woff"), /* Modern Browsers */
+         url("fonts/Lato-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+html {
+    background: white;
+}
+
+html, html * {
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-family: "LatoWebLight", "Lucida Grande", sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    width: 980px;
+    position: relative;
+}
+
+:focus {
+    outline:none;
+}
+
+::-moz-focus-inner {
+    border:none;
+}
+
+.error {
+    color: red;
+}
+
+.message {
+    color: green;
+}
+
+/* Header */
+body > header {
+    height: 0;
+}
+
+body > header > div {
+    z-index: 1;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 30px;
+}
+
+body > header > div > a {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+body >header > div > a:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+body >header > div > a.active {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+body > header > a {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* Main navigation */
+body > nav {
+    float: right;
+    width: 200px;
+}
+
+body > nav > ul {
+    list-style-type: none;
+}
+
+body > nav > ul > li {
+    margin-bottom: 5px;
+}
+
+body > nav > ul > li > a {
+    position: relative;
+    display: table-cell;
+    height: 200px;
+    width: 190px;
+    background: #94d1c4;
+    padding: 0 5px 0 5px;
+    color: #fff;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+    -moz-transition: background 1s, box-shadow 0.3s;
+    -webkit-transition: background 1s, box-shadow 0.3s;
+    -o-transition: background 1s, box-shadow 0.3s;
+    transition: background 1s, box-shadow 0.3s;
+}
+
+body > nav > ul > li > a:hover {
+    background: #a4e1d4;
+    box-shadow: 2px 2px 4px black;
+}
+
+body > nav > ul > li.active {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    padding: 0;
+    box-shadow: 2px 2px 4px black;
+}
+
+/* Submenu navigation */
+body > section > nav {
+    width: 560px;/* instead of 555px to avoid shifting li to new row caused by browser rounding */
+}
+
+body > section > nav > ul {
+    list-style-type: none;
+}
+
+body > section > nav > ul > li {
+    float: left;
+    margin: 0 5px 5px 0;
+}
+
+body > section > nav > ul > li:last-child {
+    margin-bottom: 10px;
+}
+
+body > section > nav > ul > li > a {
+    position: relative;
+    display: table-cell;
+    height: 106px;
+    width: 96px;
+    background: #94d1c4;
+    padding: 0 5px 0 5px;
+    color: #fff;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+    -moz-transition: background 1s, box-shadow 0.3s;
+    -webkit-transition: background 1s, box-shadow 0.3s;
+    -o-transition: background 1s, box-shadow 0.3s;
+    transition: background 1s, box-shadow 0.3s;
+}
+
+body > section > nav > ul > li > a:hover {
+    background: #a4e1d4;
+    box-shadow: 2px 2px 4px black;
+}
+
+body > section > nav > ul > li.active > a {
+    box-shadow: 2px 2px 4px black;
+}
+
+/*  Navigation special behaviour */
+body nav > ul > li > a > div:first-child,
+body nav > ul > li > a > div:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    transition: opacity 2s;
+}
+
+body nav > ul > li > a > div:first-child {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+body nav > ul > li > a > div:last-child,
+body nav > ul > li > a > p {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+body nav > ul > li > a:hover > div:first-child {
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+}
+
+body nav > ul > li > a > p {
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+body nav > ul > li > a > span {
+    visibility: hidden;
+}
+
+body nav > ul > li > a:hover > div:last-child,
+body nav > ul > li > a:hover > p {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/* Section */
+body > section {
+    position: relative;
+    background: #b8f5e8;
+    margin-left: 205px;
+    width: 550px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* Article */
+article > h1 {
+    margin-bottom: 5px;
+    font-size: 35px;
+    clear: left;
+}
+
+article > p {
+    margin-bottom: 5px;
+}
+
+article > img {
+    margin-bottom: 5px;
+}
+
+article > .script {
+    margin-bottom: 5px;
+}
+
+/* Gallery */
+article > .gallery {
+    margin-bottom: 5px;
+    border-spacing: 10px;
+    table-layout: fixed;
+    background-color: #a4e1d4;
+}
+
+article > .gallery > .galleryRow > .galleryCell {
+    padding: 5px;
+    background-color: #94d1c4;
+}
+
+article > .gallery > .galleryRow > .galleryCell > a > img {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+article > .gallery > .galleryRow > .galleryCell > a > img:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/* List */
+article > .list > li {
+    padding: 5px 0;
+}
+
+/* Table */
+article > .table {
+    overflow: hidden;
+    width: 100%;
+}
+    
+article > .table > table {
+    margin-bottom: 5px;
+}
+
+article > .table > table > caption {
+    text-align: right;
+    font-style: italic;
+}
+
+article > .table > table th {
+    padding: 10px;
+    background-color: #a4e1d4;
+}
+
+article > .table > table td {
+    border-bottom: 1px solid darkgrey;
+}
+
+article > .table > table, td {
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+/* Form */
+form {
+    margin-bottom: 5px;
+}
+
+form > fieldset  > legend {
+    width: 100%;
+}
+
+form > fieldset > label > textarea,
+form > fieldset > label > input {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+form > fieldset > label > textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+form > fieldset > input[type=submit] {
+    width: 100%;
+    background: #94d1c4;
+    padding: 8px 0 8px 0;
+    color: #fff;
+    text-align: center;
+    -moz-transition: background 1s;
+    -webkit-transition: background 1s;
+    -o-transition: background 1s;
+    transition: background 1s;
+}
+
+form > fieldset > input[type=submit]:hover {
+    background: #a4e1d4;
+    cursor: pointer;
+}
+
+/* Search bar */
+#search ul {
+    margin:0 40px;
+    list-style-type: circle;
+}
+
+/* Sidebox */
+#sidebox {
+    position: absolute;
+    top: 205;
+    left: -205;
+    width: 200;
+}
+
+#sidebox > div > pre {
+    width: 200;
+}
+
+/* Footer */
+body > footer {
+    clear: both;
+    margin-left: 205px;
+    height: 15px;
+    font-size: 15px;
+}
+
+/* Map */
+#map {
+    clear: both;
+    margin-bottom: 5px;
+}
+
+/* Slider buttons hover */
+#facebook, #twitter, #youtube, #googleplus, #linkedin, #contactButton, #searchButton,
+#sideboxButton, #sideboxUpButton, #sideboxDownButton {
+    color: transparent;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+#facebook:hover, #twitter:hover, #youtube:hover, #googleplus:hover, #linkedin:hover, 
+#contactButton:hover, #searchButton:hover, #sideboxButton:hover, 
+#sideboxUpButton:hover, #sideboxDownButton:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 995px) {
+    body > section {
+        overflow: visible;
+    }
+    
+    article > .table {
+        overflow: scroll;
+    }
+}

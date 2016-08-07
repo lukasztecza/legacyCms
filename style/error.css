@@ -1,0 +1,37 @@
+html {
+    background: white;
+}
+
+html, html * {
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+body > div.errorContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    text-align: center;
+}
+
+body > div.errorContent > a {
+    display: block;
+}
+
+@media screen and (max-width: 640px)
+{
+    body > div.errorContent {
+        text-align: center;
+        position: static !important;
+        margin: 0;
+        width: 100%;
+    }
+    
+}

@@ -1,0 +1,504 @@
+/* Overall */
+@font-face {
+    font-family: "LatoWebLight";
+    src: url("fonts/Lato-Light.eot"); /* IE9 Compat Modes */
+    src: url("fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("fonts/Lato-Light.woff2") format("woff2"), /* Modern Browsers */
+         url("fonts/Lato-Light.woff") format("woff"), /* Modern Browsers */
+         url("fonts/Lato-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+html {
+    background-image: url("graphics/background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html, html * {
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-family: "LatoWebLight", "Lucida Grande", sans-serif;
+}
+
+:focus {
+    outline:none;
+}
+
+::-moz-focus-inner {
+    border:none;
+}
+
+.error {
+    color: red;
+}
+
+.message {
+    color: green;
+}
+
+/* Header */
+body > header > div {
+    position: fixed;
+    max-width: 8%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+body > header > div > a {
+    font-size: 15px;
+    text-decoration: none;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+body >header > div > a:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+body >header > div > a.active {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+body > header > a {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* Main navigation */
+body > nav {
+    width: 80%;
+    overflow: hidden;
+    background: #3f92e7;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+    text-align: center;
+    padding: 0 10%;
+}
+
+body > nav > ul {
+    display: inline-block;
+    width: 100%;
+    list-style-type: none;
+    margin: 0 auto;
+}
+
+body > nav > ul > li {
+    float: left;
+    width: calc(20% - 2px);
+    border-top: 1px solid #5fb2f7;
+    border-right: 1px solid #1f72c7;
+    border-bottom: 1px solid #1f72c7;
+    border-left: 1px solid #5fb2f7;
+    background: #3f92e7;
+    overflow: hidden;
+    -moz-transition: background 0.7s;
+    -webkit-transition: background 0.7s;
+    -o-transition: background 0.7s;
+    transition: background 0.7s;
+}
+
+body > nav > ul > li > a {
+    display: block;
+    position: relative;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+body > nav > ul > li:hover {
+    background: #4fa2f7;
+}
+
+body > nav > ul > li:active {
+    border: 1px solid #4fa2f7;
+    background: #4fa2f7;
+}
+
+body > nav > ul > li.active {
+    background: #4fa2f7;
+}
+
+/* Submenu navigation */
+body > section > nav {
+    background: #3f92e7;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+body > section > nav > ul {
+    display: inline-block;
+    width: 100%;
+    list-style-type: none;
+}
+
+body > section > nav > ul > li {
+    float: left;
+    width: calc(20% - 2px);
+    border-top: 1px solid #5fb2f7;
+    border-right: 1px solid #1f72c7;
+    border-bottom: 1px solid #1f72c7;
+    border-left: 1px solid #5fb2f7;
+    background: #3f92e7;
+    overflow: hidden;
+    -moz-transition: background 0.7s;
+    -webkit-transition: background 0.7s;
+    -o-transition: background 0.7s;
+    transition: background 0.7s;
+}
+
+body > section > nav > ul > li > a {
+    display: block;
+    position: relative;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+body > section > nav > ul > li:hover {
+    background: #4fa2f7;
+}
+
+body > section > nav > ul > li:active {
+    border: 1px solid #4fa2f7;
+    background: #4fa2f7;
+}
+
+body > section > nav > ul > li.active {
+    background: #4fa2f7;
+}
+
+/*  Navigation special behaviour */
+body  nav > ul > li > a > div:first-child,
+body  nav > ul > li > a > div:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+body nav > ul > li > a > div:first-child {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+body nav > ul > li > a > div:last-child,
+body nav > ul > li > a > p {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+body nav > ul > li > a:hover > div:first-child {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+body nav > ul > li > a > p {
+    -moz-transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+body nav > ul > li > a > span {
+    visibility: hidden;
+}
+
+body nav > ul > li > a:hover > div:last-child,
+body nav > ul > li > a:hover > p {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/* Section */
+body > section {
+    margin: 10px auto 0 auto;
+    width: 80%;
+}
+
+body > section > .sectionBar {
+    height: 5px;
+    background: #3f92e7;
+}
+
+body > section > .sectionBar:first-child {
+    margin-bottom: 5px;
+    height: 0;
+}
+
+body > section > .sectionBar:last-child {
+    clear: both;
+}
+
+/* Article */
+article {
+    float: right;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+article > h1 {
+    margin-bottom: 5px;
+    font-size: 35px;
+}
+
+article > p {
+    margin-bottom: 5px;
+}
+
+article > img {
+    margin-bottom: 5px;
+}
+
+article > .script {
+    margin-bottom: 5px;
+}
+
+/* Gallery */
+article > .gallery {
+    margin-bottom: 5px;
+    border-spacing: 5px;
+    table-layout: fixed;
+}
+
+article > .gallery > .galleryRow > .galleryCell > a > img {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+article > .gallery > .galleryRow > .galleryCell > a > img:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/* List */
+article > .list > li {
+    clear: both;
+    border-top: 1px solid #3f92e7;
+    padding: 5px 0;
+}
+
+article > .list > li:last-child {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #3f92e7;
+}
+
+article > ul {
+    clear: both;
+}
+
+/* Table */
+article > .table {
+    overflow: hidden;
+    width: 100%;
+}
+    
+article > .table > table {
+    margin-bottom: 5px;
+}
+
+article > .table > table > caption {
+    text-align: left;
+    font-style: italic;
+}
+
+article > .table > table th {
+    padding: 10px 5px;
+    background-color: #3f92e7;
+}
+
+article > .table > table td {
+    border-bottom: 1px solid #3f92e7;
+}
+
+article > .table > table, td {
+    border-collapse: collapse;
+    padding: 0 5px;
+}
+
+/* Form */
+form {
+    clear: both;
+    margin-bottom: 5px;
+}
+
+form > fieldset  > legend {
+    width: 100%;
+}
+
+form > fieldset > label > textarea,
+form > fieldset > label > input {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+form > fieldset > label > textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+form > fieldset > input[type=submit] {
+    width: 100%;
+    border-top: 1px solid #5fb2f7;
+    border-right: 1px solid #1f72c7;
+    border-bottom: 1px solid #1f72c7;
+    border-left: 1px solid #5fb2f7;
+    background: #3f92e7;
+    padding: 8px 0 8px 0;
+    color: #fff;
+    text-align: center;
+    -moz-transition: background 0.7s;
+    -webkit-transition: background 0.7s;
+    -o-transition: background 0.7s;
+    transition: background 0.7s;
+}
+
+form > fieldset > input[type=submit]:hover {
+    background: #4fa2f7;
+    cursor: pointer;
+}
+
+form > fieldset > input[type=submit]:active {
+    border: 1px solid #4fa2f7;
+    background: #4fa2f7;
+}
+
+/* Search bar */
+#search ul {
+    margin:0 40px;
+    list-style-type: circle;
+}
+
+/* Footer */
+body > footer {
+    clear: both;
+    float: right;
+    height: 10%;
+    margin-right: 10%;
+    font-size: 15px;
+}
+
+/* Map */
+#map {
+    clear: both;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+/* Slider buttons hover */
+#facebook, #twitter, #youtube, #googleplus, #linkedin, #contactButton, #searchButton,
+#sideboxButton, #sideboxUpButton, #sideboxDownButton {
+    color: transparent;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+#facebook:hover, #twitter:hover, #youtube:hover, #googleplus:hover, #linkedin:hover,
+#contactButton:hover, #searchButton:hover, #sideboxButton:hover, 
+#sideboxUpButton:hover, #sideboxDownButton:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    body > header {
+        height: 30px;
+    }
+    
+    body > header > div {
+        max-width: none;
+        margin: 0 10px;
+    }
+    
+    body > nav {
+        width: 100%;
+        padding: 0;
+    }
+    
+    body > nav > ul > li, body > section > nav > ul > li {
+        width: calc(25% - 2px);
+    }
+    
+    body > section {
+        width: 100%;
+    }
+    
+    article > .table {
+        overflow: scroll;
+    }
+    
+    body > footer {
+        height: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        padding: 0 10px;
+    }
+    
+    html {
+        background-image: none;
+        background-color: lightblue;
+    }
+    
+    body {
+        min-width: 280px;
+    }
+    
+    body > header > a {
+        display: none;
+    }
+    
+    body > nav {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        width: 100%;
+    }
+    
+    body > nav > ul > li {
+        width: 100%;
+    }
+    
+    body > section > nav > ul > li {
+        width: calc(50% - 2px);
+    }
+}
+
