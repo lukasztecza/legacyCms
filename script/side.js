@@ -193,6 +193,9 @@
 
 /** Showing links */
 (function() {
+    //firefox browser go back force to fire javascript
+    window.onunload = function() {};
+
     //unfade page when ready
     window.addEventListener("pageshow", function () {
         document.querySelector("body").style.visibility = "visible";

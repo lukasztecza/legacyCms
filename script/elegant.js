@@ -286,6 +286,9 @@
         }
     }
     
+    //firefox browser go back force to fire javascript
+    window.onunload = function() {};
+    
     //add fading to links if device is large enough
     if (window.innerWidth > 480) {
         unfadePage();
