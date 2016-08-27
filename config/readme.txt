@@ -122,7 +122,7 @@ and you have an email account "developers_email@a.com".
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
         
 3) Open "/your_directory/Config/Config.class.php" and set the following constants:
-    DB_PDO = "mysql:host=your_database_host:3306;dbname=your_database_name;charset=utf8";
+    const DB_PDO = "mysql:host=your_database_host:3306;dbname=your_database_name;charset=utf8";
     const DB_USER = "your_database_user";
     const DB_PASSWORD = "your_database_password";
     const DEV_EMAIL = "developers_email@a.com"; //he will be the sender of new passwords etc.
