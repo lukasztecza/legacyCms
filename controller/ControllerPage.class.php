@@ -236,9 +236,14 @@ class ControllerPage extends Controller
                 foreach ($results as $key => $result) {
                     $results[$key]['title'] = Dictionary::get($result['title']);
                 }
+                //avoid associative indexes in ajax response
+                $response = array();
+                foreach ($results as $result) {
+                    $response[] = $result;
+                }
                 echo json_encode(array(
                     "error" => $searchError,
-                    "results" => $results,
+                    "results" => $response,
                     "baseUrl" => Config::getSite() . "&request=page&article="
                 ));
                 exit();
