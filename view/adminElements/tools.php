@@ -1,0 +1,1 @@
+<?php Controller::load($data->extension); ?>

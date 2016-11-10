@@ -1,0 +1,485 @@
+/* Overall */
+@font-face {
+    font-family: "LatoWebLight";
+    src: url("fonts/Lato-Light.eot"); /* IE9 Compat Modes */
+    src: url("fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("fonts/Lato-Light.woff2") format("woff2"), /* Modern Browsers */
+         url("fonts/Lato-Light.woff") format("woff"), /* Modern Browsers */
+         url("fonts/Lato-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+html {
+    background-image: url("graphics/sideBackground.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html, html * {
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-family: "LatoWebLight", "Lucida Grande", sans-serif;
+}
+
+:focus {
+    outline:none;
+}
+
+::-moz-focus-inner {
+    border:none;
+}
+
+.error {
+    color: red;
+}
+
+.message {
+    color: green;
+}
+
+/* Header */
+body > header {
+    height: 20%;
+}
+
+body > header > div {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+body > header > div > a {
+    font-size: 15px;
+    text-decoration: none;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+body >header > div > a:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+body > header > a {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* Main navigation */
+body > nav {
+    position: fixed;
+    margin-left: 10%;
+    width: 20%;
+}
+
+body > nav > ul {
+    border-radius: 10px;
+    border-top: 1px solid #6cc86c;
+    border-right: 1px solid #096309;
+    border-bottom: 1px solid #096309;
+    border-left: 1px solid #6cc86c;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+body > nav > ul > li {
+    border-top: 1px solid #6cc86c;
+    border-right: 1px solid #096309;
+    border-bottom: 1px solid #096309;
+    border-left: 1px solid #6cc86c;
+    background: -webkit-linear-gradient(#5cb85c, #449d44);
+    background: -o-linear-gradient(#5cb85c, #449d44);
+    background: -moz-linear-gradient(#5cb85c, #449d44);
+    background: linear-gradient(#5cb85c, #449d44);
+}
+
+body > nav > ul > li > a {
+    display: block;
+    position: relative;
+    padding: 10px 0 10px 0;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+body > nav > ul > li:hover {
+    background: -webkit-linear-gradient(#4ea84e, #449d44);
+    background: -o-linear-gradient(#4ea84e, #449d44);
+    background: -moz-linear-gradient(#4ea84e, #449d44);
+    background: linear-gradient(#4ea84e, #449d44);
+}
+
+body > nav > ul > li:active {
+    border-top: 1px solid #449d44;
+    border-right: 1px solid #449d44;
+    border-bottom: 1px solid #449d44;
+    border-left: 1px solid #449d44;
+    background: #449d44;
+}
+
+/* Submenu navigation */
+body > section > nav > ul {
+    overflow: hidden;
+    list-style-type: none;
+}
+
+body > section > nav > ul > li {
+    float: left;
+    width: 25%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+body > section > nav > ul > li > a {
+    display: block;
+    position: relative;
+    border-top: 1px solid #6cc86c;
+    border-right: 1px solid #096309;
+    border-bottom: 1px solid #096309;
+    border-left: 1px solid #6cc86c;
+    background: -webkit-linear-gradient(#5cb85c, #449d44);
+    background: -o-linear-gradient(#5cb85c, #449d44);
+    background: -moz-linear-gradient(#5cb85c, #449d44);
+    background: linear-gradient(#5cb85c, #449d44);
+    padding: 10px 0 10px 0;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+body > section > nav > ul > li > a:hover {
+    background: -webkit-linear-gradient(#4ea84e, #449d44);
+    background: -o-linear-gradient(#4ea84e, #449d44);
+    background: -moz-linear-gradient(#4ea84e, #449d44);
+    background: linear-gradient(#4ea84e, #449d44);   
+}
+
+body > section > nav > ul > li > a:active {
+    border-top: 1px solid #449d44;
+    border-right: 1px solid #449d44;
+    border-bottom: 1px solid #449d44;
+    border-left: 1px solid #449d44;
+    background: #449d44;
+}
+
+/*  Navigation special behaviour */
+body  nav > ul > li > a > div:first-child,
+body  nav > ul > li > a > div:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body nav > ul > li > a > div:first-child {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+body nav > ul > li > a > div:last-child,
+body nav > ul > li > a > p {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+body nav > ul > li > a:hover > div:first-child {
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+}
+
+body nav > ul > li > a > span {
+    visibility: hidden;
+}
+
+body nav > ul > li > a:hover > div:last-child,
+body nav > ul > li > a:hover > p {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/* Section */
+body > section {
+    margin-left: 32%;
+    margin-right: 10%;
+    width: 58%;
+}
+
+body > section > .sectionBar {
+    height: 10px;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(#5cb85c, #449d44);
+    background: -o-linear-gradient(#5cb85c, #449d44);
+    background: -moz-linear-gradient(#5cb85c, #449d44);
+    background: linear-gradient(#5cb85c, #449d44);
+}
+
+body > section > .sectionBar:first-child {
+    margin-bottom: 5px;
+}
+
+body > section > .sectionBar:last-child {
+    margin-top: 5px;
+    clear: both;
+}
+
+/* Article */
+article > h1 {
+    margin-bottom: 5px;
+    font-size: 35px;
+}
+
+article > p {
+    margin-bottom: 5px;
+}
+
+article > img {
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+article > .script {
+    margin-bottom: 5px;
+}
+
+/* Gallery */
+article > .gallery {
+    margin-bottom: 5px;
+    border-spacing: 10px;
+    table-layout: fixed;
+}
+
+article > .gallery > .galleryRow > .galleryCell > a > img {
+    border-radius: 10px;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+article > .gallery > .galleryRow > .galleryCell > a > img:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/* List */
+article > .list > li {
+    clear: both;
+    border-top: 1px solid darkgrey;
+    padding: 5px 0;
+}
+
+article > .list > li:last-child {
+    margin-bottom: 5px;
+    border-bottom: 1px solid darkgrey;
+}
+
+article > ul {
+    clear: both;
+}
+
+/* Table */
+article > .table {
+    overflow: hidden;
+    width: 100%;
+}
+
+article > .table > table {
+    margin-bottom: 5px;
+}
+
+article > .table > table > caption {
+    text-align: left;
+    font-style: italic;
+}
+
+article > .table > table th {
+    padding: 10px 5px;
+    background-color: #8ce88c;
+}
+
+article > .table > table td {
+    border-bottom: 1px solid darkgrey;
+}
+
+article > .table > table, td {
+    border-collapse: collapse;
+    padding: 0 5px;
+}
+
+/* Form */
+form {
+    clear: both;
+    margin-bottom: 5px;
+}
+
+form > fieldset  > legend {
+    width: 100%;
+}
+
+form > fieldset > label > textarea,
+form > fieldset > label > input {
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+form > fieldset > label > textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+form > fieldset > input[type=submit] {
+    width: 100%;
+    border-top: 1px solid #6cc86c;
+    border-right: 1px solid #096309;
+    border-bottom: 1px solid #096309;
+    border-left: 1px solid #6cc86c;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(#5cb85c, #449d44);
+    background: -o-linear-gradient(#5cb85c, #449d44);
+    background: -moz-linear-gradient(#5cb85c, #449d44);
+    background: linear-gradient(#5cb85c, #449d44);
+    padding: 8px 0 8px 0;
+    color: #fff;
+    text-align: center;
+}
+
+form > fieldset > input[type=submit]:hover {
+    background: -webkit-linear-gradient(#4ea84e, #449d44);
+    background: -o-linear-gradient(#4ea84e, #449d44);
+    background: -moz-linear-gradient(#4ea84e, #449d44);
+    background: linear-gradient(#4ea84e, #449d44);
+    cursor: pointer;
+}
+
+form > fieldset > input[type=submit]:active {
+    border-top: 1px solid #449d44;
+    border-right: 1px solid #449d44;
+    border-bottom: 1px solid #449d44;
+    border-left: 1px solid #449d44;
+    background: #449d44;
+}
+
+/* Search bar */
+#search ul {
+    margin:0 40px;
+    list-style-type: circle;
+}
+
+/* Footer */
+body > footer {
+    clear: both;
+    float: right;
+    height: 10%;
+    margin-right: 10%;
+    font-size: 15px;
+}
+
+/* Map */
+#map {
+    clear: both;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Slider buttons hover */
+#facebook, #twitter, #youtube, #googleplus, #linkedin {
+    border-radius: 10px;
+    overflow:hidden;
+}
+
+#facebook, #twitter, #youtube, #googleplus, #linkedin, #contactButton, #searchButton,
+#sideboxButton, #sideboxUpButton, #sideboxDownButton {
+    color: transparent;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -moz-transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+#facebook:hover, #twitter:hover, #youtube:hover, #googleplus:hover, #linkedin:hover
+#contactButton:hover, #searchButton:hover, #sideboxButton:hover, 
+#sideboxUpButton:hover, #sideboxDownButton:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    body > header {
+        height: 20px;
+    }
+    
+    body > nav {
+        margin-left: 0;
+        width: 34%;
+    }
+    
+    body > section {
+        margin-left: 35%;
+        width: 65%;
+    }
+    
+    article > .table {
+        overflow: scroll;
+    }
+    
+    body > footer {
+        height: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        padding: 0 10px;
+    }
+    
+    html {
+        background-image: none;
+        background-color: #acffac;
+    }
+    
+    body {
+        min-width: 280px;
+    }
+
+    body > header > div {
+        z-index: 1;
+    }
+    
+    body > header > a {
+        display: none;
+    }
+
+    body > nav {
+        position:relative;
+        width: 100%;
+    }
+    
+    body > section {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    body > section > nav > ul > li {
+        width: 50%;
+    }
+    
+    body > section > .sectionBar:first-child {
+        margin-top: 5px;
+    }
+}
+
