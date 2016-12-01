@@ -83,8 +83,6 @@ class Authenticator extends Model
         $deleteEmail = !empty($_POST["user_delete"]) ? $_POST["user_delete"] : null;
         $deleteResult = "";
         
-        //if 
-        
         //if email to create has incorrect format note it in result
         if (!$createEmail) {
             $createResult = "empty";        

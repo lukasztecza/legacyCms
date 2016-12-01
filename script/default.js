@@ -101,6 +101,9 @@
             
             //set background of zoom box
             zoomBackground.style.backgroundColor = 'white';
+            zoomBackground.style.backgroundImage = "url('style/graphics/loading.gif')";
+            zoomBackground.style.backgroundRepeat = "no-repeat";
+            zoomBackground.style.backgroundPosition = "center";
             zoomBackground.style.opacity = 0.6;
             
             //set initial image properties
