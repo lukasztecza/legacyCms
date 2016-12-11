@@ -797,7 +797,7 @@ class ControllerAdmin extends Controller
             $error .= file_exists(
                 Config::getDirectory() . "uploads/" . $this->slugify($uploadedFile["name"])
             ) ? "File which You have tried to upload has the same name as one which already exists on the server<br />" : null;
-            $error .= $uploadedFile["size"] > 3000000 ? "File which You have tried to upload is too large (has over 10MB)<br />" : null;
+            $error .= $uploadedFile["size"] > 3000000 ? "File which You have tried to upload is too large (has over 3MB)<br />" : null;
             $fileExtension = strtolower(pathinfo($uploadedFile["name"], PATHINFO_EXTENSION));
             $error .= (
                 !array_key_exists($fileExtension, $this->imageCheck) ||
@@ -871,7 +871,7 @@ class ControllerAdmin extends Controller
             $error .= file_exists(
                 Config::getDirectory() . "uploads/" . $this->secure($this->slugify($uploadedFile["name"]))
             ) ? "File which You have tried to upload has the same name as one which already exists on the server<br />" : null;
-            $error .= $uploadedFile["size"] > 3000000 ? "File which You have tried to upload is too lagrge (has over 3MB)<br />" : null;
+            $error .= $uploadedFile["size"] > 5000000 ? "File which You have tried to upload is too large (has over 5MB)<br />" : null;
             $fileExtension = strtolower(pathinfo($uploadedFile["name"], PATHINFO_EXTENSION));
             $error .= (
                 !array_key_exists($fileExtension, $this->fileCheck) ||
