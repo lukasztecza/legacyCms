@@ -237,7 +237,6 @@ class Controller
      */
     protected function uploadImage($uploadedFile)
     {
-        //set images sizes
         $sizes = array("min" => array("width" => 100), "med" => array("width" => 400), "max" => array("width" => 1000));
         $imageSize = getimagesize($uploadedFile["tmp_name"]);
         foreach ($sizes as $size => $value) {
@@ -249,6 +248,19 @@ class Controller
             } else {
                 $sizes[$size]["height"] = (int)($imageSize[1] * $proportion);
             }
+        }
+
+        //create image according to mime type
+        switch ($uploadedFile["type"]) {
+                case $this->imageCheck["jpg"]:
+                $image = imagecreatefromjpeg($uploadedFile["tmp_name"]);
+                break;
+            case $this->imageCheck["png"]:
+                $image = imagecreatefrompng($uploadedFile["tmp_name"]);
+                break;
+            case $this->imageCheck["gif"]:
+                $image = imagecreatefromgif($uploadedFile["tmp_name"]);
+                break;
         }
         
         //save all versions of image
