@@ -333,7 +333,7 @@ class Dictionary extends Model
         $conn = $this->connection;
         
         //leave only latest translation for each used string
-        foreach ($usedStrings as $base) {
+        foreach ($usedStrings as $base => $codes) {
             //devide process by country code 
             foreach ($usedCodes as $code => $image) {
                 //get ids of all translations for base
