@@ -265,19 +265,6 @@ class Controller
         
         //save all versions of image
         foreach ($sizes as $size => $values) {
-            //create image according to mime type
-            switch ($uploadedFile["type"]) {
-                case $this->imageCheck["jpg"]:
-                    $image = imagecreatefromjpeg($uploadedFile["tmp_name"]); 
-                    break;
-                case $this->imageCheck["png"]:
-                    $image = imagecreatefrompng($uploadedFile["tmp_name"]); 
-                    break;
-                case $this->imageCheck["gif"]:
-                    $image = imagecreatefromgif($uploadedFile["tmp_name"]); 
-                    break;
-            }
-       
             //create resized images (preserve transparency) 
             $resizedImage = imagecreatetruecolor($values["width"], $values["height"]);
             $transparentIndex = imagecolortransparent($image);
