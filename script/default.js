@@ -344,7 +344,7 @@
             }
             section.style.paddingTop = parseInt(navigationStyle.height);
             navigation.style.paddingTop = headerStyle.height;
-            navigation.style.width = "calc(100% - 20px)";
+            navigation.style.width = "calc(100%)";
         }
     }
     
