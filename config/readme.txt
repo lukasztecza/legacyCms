@@ -132,6 +132,7 @@ and you have an email account "developers_email@a.com".
 4) In "/your_directory/Config/Config.class.php" change used styles and scripts commenting or uncommenting contents of arrays $cssFiles and $jsFiles:
     In $jsFiles array there are files which corresponds to $cssFiles array and files which are not related to it. 
     If you want to change appearance leave uncommented file in $cssFiles and comment the rest and do the same with corresponding files in $jsFiles
+    If you have chosen to use some of $jsFiles which is related to $cssFiles (for instance default.js) do not forget to uncomment javascript hiding in view/page.php for chrome smooth unfading effect
 
 5) In "/your_directory/view/preview.php" change in head included style (link tag) to corresponding preview style.
     For instance if you have chosen "style/default.css" then link should have src="style/defaultpreview.css"
