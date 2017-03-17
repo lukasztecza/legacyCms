@@ -104,11 +104,9 @@ class Responder
     {
         //download file if exists else redirect
         if (!empty($_GET["file"])) {
-            //search for the proper file or image
-            $file = Config::getDirectory() . "uploads/files/" . $_GET["file"];
-            if (!file_exists($file)) {
-                $file = Config::getDirectory() . "uploads/max/" . $_GET["file"];
-            }
+            //search for the proper file
+            $file = explode('/', $_GET["file"]);
+            $file = Config::getDirectory() . "uploads/files/" . array_pop($file);
             if (file_exists($file)) {
                 //download file
                 header('Content-Description: File Transfer');
