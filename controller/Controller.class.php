@@ -252,7 +252,7 @@ class Controller
 
         //create image according to mime type
         switch ($uploadedFile["type"]) {
-                case $this->imageCheck["jpg"]:
+            case $this->imageCheck["jpg"]:
                 $image = imagecreatefromjpeg($uploadedFile["tmp_name"]);
                 break;
             case $this->imageCheck["png"]:
