@@ -215,8 +215,14 @@ For developing purposes it is better to have in "Config.class.php" following set
     const IS_PRODUCTION_ENVIRONMENT = 0; 
     const AUTO_AUTHENTICATE = 1; 
     const CACHE_TIME = 0;
-
-
+If you expect large images to be uploaded add the following in /etc/php.ini:
+    memory_limit = 32M
+    upload_max_filesize = 10M
+    post_max_size = 20M
+In case you do not have access to in add in main app directory following .htaccess:
+    php_value upload_max_filesize 10M
+    php_value post_max_size 20M
+    php_value memory_limit 32M
 
 part 3) controller
 First class to be called in this directory is "Responder.class.php" which has to contain proper method in responses section. For instance lets assume
