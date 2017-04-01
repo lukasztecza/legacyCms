@@ -5,7 +5,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Preview</title>
-    <link rel="stylesheet" href="<?php echo Config::getDefaultSite() . "style/defaultpreview.css"; ?>" />
+    <link rel="stylesheet" href="<?php echo Config::getDefaultSite() . "style/bluepreview.css"; ?>" />
 </head>
 <body>
     <div class="previewContent">
