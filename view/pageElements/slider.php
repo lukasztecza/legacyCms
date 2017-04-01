@@ -59,5 +59,15 @@
                  title="linkedin"
              />
         </a>
+    <?php break;case "github": ?>
+        <a id="github" href="<?php echo $element["content"]; ?>" target="_blank">
+            <img
+                 width="50px"
+                 height=50px"
+                 src="<?php echo Config::getDefaultSite() . "style/graphics/github.jpg"; ?>"
+                 alt="github"
+                 title="github"
+             />
+        </a>
     <?php break;endswitch; ?>
 <?php endforeach; ?>

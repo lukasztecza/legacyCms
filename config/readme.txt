@@ -114,6 +114,9 @@ and you have an email account "developers_email@a.com".
     INSERT INTO `slider` (`id`, `type`, `content`) 
     VALUES (8, 'linkedin', '')
     ON DUPLICATE KEY UPDATE `id` = 8;
+    INSERT INTO `slider` (`id`, `type`, `content`) 
+    VALUES (9, 'github', '')
+    ON DUPLICATE KEY UPDATE `id` = 9;
 
     CREATE TABLE IF NOT EXISTS `script` (
         `id` INT(11) NOT NULL AUTO_INCREMENT,

@@ -74,6 +74,12 @@
         </label>
         <br /><br />
         <hr />
+        <br />
+        <label>Github url:
+            <input type="text" name="<?php echo "github"; ?>" value="<?php echo $data->contents["github"]; ?>" />
+        </label>
+        <br /><br />
+        <hr />
         <input type="submit" value="<?php echo "Confirm"; ?>" />
     </fieldset>
 </form>

@@ -935,9 +935,9 @@
 })();
 /** End search box */
 
-/** Facebook, twitter, youtube, google plus */
+/** Facebook, twitter, youtube, google plus, linkedin, github */
 (function() {
-    var socialMedia = ["facebook", "twitter", "youtube", "googleplus", "linkedin"],
+    var socialMedia = ["facebook", "twitter", "youtube", "googleplus", "linkedin", "github"],
         additionalElements = ["sidebox", "contact", "search"];
 
     //make social media links fixed
@@ -1005,5 +1005,5 @@
         }
     });
 })();
-/** End facebook, twitter, youtube, google plus */
+/** End facebook, twitter, youtube, google plus, linkedin, github */
 

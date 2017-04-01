@@ -394,7 +394,7 @@ body > footer {
 }
 
 /* Slider buttons hover */
-#facebook, #twitter, #youtube, #googleplus, #linkedin, #contactButton, #searchButton,
+#facebook, #twitter, #youtube, #googleplus, #linkedin, #github, #contactButton, #searchButton,
 #sideboxButton, #sideboxUpButton, #sideboxDownButton {
     color: transparent;
     opacity: 0.6;
@@ -405,7 +405,7 @@ body > footer {
     transition: opacity 0.7s;
 }
 
-#facebook:hover, #twitter:hover, #youtube:hover, #googleplus:hover, #linkedin:hover,
+#facebook:hover, #twitter:hover, #youtube:hover, #googleplus:hover, #linkedin:hover, #github:hover,
 #contactButton:hover, #searchButton:hover, #sideboxButton:hover, 
 #sideboxUpButton:hover, #sideboxDownButton:hover {
     opacity: 1;
