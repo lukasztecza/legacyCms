@@ -27,20 +27,20 @@
         <br /><br />
         <hr />
         <br />
-        <label>Side box:
-            <textarea
-                rows="4"
-                name="<?php echo "sidebox"; ?>"
-            ><?php echo $data->contents["sidebox"]; ?></textarea>
-        </label>
-        <br /><br />
-        <hr />
-        <br />
         <label>Contact box receiver e-mail:
             <input type="text" name="<?php echo "contact_email"; ?>" value="<?php echo $data->contents["emailAddress"]; ?>" />
         </label>
         <label>Contact box description:
             <input type="text" name="<?php echo "contact_description"; ?>" value="<?php echo $data->contents["emailDescription"]; ?>" />
+        </label>
+        <br /><br />
+        <hr />
+        <br />
+        <label>Side box:
+            <textarea
+                rows="4"
+                name="<?php echo "sidebox"; ?>"
+            ><?php echo $data->contents["sidebox"]; ?></textarea>
         </label>
         <br /><br />
         <hr />
@@ -71,6 +71,12 @@
         <br />
         <label>LinkedIn url:
             <input type="text" name="<?php echo "linkedin"; ?>" value="<?php echo $data->contents["linkedin"]; ?>" />
+        </label>
+        <br /><br />
+        <hr />
+        <br />
+        <label>Github url:
+            <input type="text" name="<?php echo "github"; ?>" value="<?php echo $data->contents["github"]; ?>" />
         </label>
         <br /><br />
         <hr />

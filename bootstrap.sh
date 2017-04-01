@@ -151,10 +151,10 @@ INSERT INTO `slider` (`id`, `type`, `content`)
 VALUES (1, 'search', '')
 ON DUPLICATE KEY UPDATE `id` = 1;
 INSERT INTO `slider` (`id`, `type`, `content`) 
-VALUES (2, 'sidebox', '')
+VALUES (2, 'contact', '{"email":"","description":""}')
 ON DUPLICATE KEY UPDATE `id` = 2;
 INSERT INTO `slider` (`id`, `type`, `content`) 
-VALUES (3, 'contact', '{"email":"","description":""}')
+VALUES (3, 'sidebox', '')
 ON DUPLICATE KEY UPDATE `id` = 3;
 INSERT INTO `slider` (`id`, `type`, `content`) 
 VALUES (4, 'facebook', '')
@@ -171,6 +171,10 @@ ON DUPLICATE KEY UPDATE `id` = 7;
 INSERT INTO `slider` (`id`, `type`, `content`) 
 VALUES (8, 'linkedin', '')
 ON DUPLICATE KEY UPDATE `id` = 8;
+INSERT INTO `slider` (`id`, `type`, `content`)
+VALUES (9, 'github', '')
+ON DUPLICATE KEY UPDATE `id` = 9;
+
 
 CREATE TABLE IF NOT EXISTS `script` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,

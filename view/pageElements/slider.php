@@ -1,14 +1,14 @@
 <?php foreach ($data->content as $element): ?>
     <?php switch ($element["type"]): case "search": ?>
         <?php Controller::load("searchbarForm", array("description" => $element["content"])); ?>
-    <?php break;case "sidebox": ?>
-        <div id="sidebox"><div><pre style="white-space:pre-wrap;"><?php echo Dictionary::get($element["content"]); ?></pre></div></div>
     <?php break;case "contact": ?>
         <?php Controller::load("emailForm", array(
             "email" => $element["content"]["email"],
             "description" => $element["content"]["description"],
             "buttonId" => $data->buttonId
         )); ?>
+    <?php break;case "sidebox": ?>
+        <div id="sidebox"><div><pre style="white-space:pre-wrap;"><?php echo Dictionary::get($element["content"]); ?></pre></div></div>
     <?php break;case "facebook": ?>
         <a id="facebook" href="<?php echo $element["content"]; ?>" target="_blank">
             <img
@@ -57,6 +57,16 @@
                  src="<?php echo Config::getDefaultSite() . "style/graphics/linkedin.jpg"; ?>"
                  alt="linkedin"
                  title="linkedin"
+             />
+        </a>
+    <?php break;case "github": ?>
+        <a id="github" href="<?php echo $element["content"]; ?>" target="_blank">
+            <img
+                 width="50px"
+                 height=50px"
+                 src="<?php echo Config::getDefaultSite() . "style/graphics/github.jpg"; ?>"
+                 alt="github"
+                 title="github"
              />
         </a>
     <?php break;endswitch; ?>

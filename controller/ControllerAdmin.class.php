@@ -922,9 +922,6 @@ class ControllerAdmin extends Controller
                     case ($fieldName === "search"):
                         $slider["search"] = $searchbarError = $this->secure($value);
                         break;
-                    case ($fieldName === "sidebox"):
-                        $slider["sidebox"] = $sideboxError = $this->secure($value);
-                        break;
                     case ($fieldName === "contact"):
                         $filedContent = $fieldElements[1];
                         if ($filedContent === "description") {
@@ -952,16 +949,27 @@ class ControllerAdmin extends Controller
                             }
                         }
                         break;
+                    case ($fieldName === "sidebox"):
+                        $slider["sidebox"] = $sideboxError = $this->secure($value);
+                        break;
                     case ($fieldName === "facebook"):
                         $slider["facebook"] = $facebookError = $this->secure($value);
+                        break;
                     case ($fieldName === "twitter"):
                         $slider["twitter"] = $twitterError = $this->secure($value);
+                        break;
                     case ($fieldName === "youtube"):
                         $slider["youtube"] = $youtubeError = $this->secure($value);
+                        break;
                     case ($fieldName === "googleplus"):
                         $slider["googleplus"] = $googleplusError = $this->secure($value);
+                        break;
                     case ($fieldName === "linkedin"):
                         $slider["linkedin"] = $linkedinError = $this->secure($value);
+                        break;
+                    case ($fieldName === "github"):
+                        $slider["github"] = $githubError = $this->secure($value);
+                        break;
                 }
             }
             
@@ -994,22 +1002,32 @@ class ControllerAdmin extends Controller
                 case "search":
                     $this->contents["search"] = $content["content"];
                     break;
-                case "sidebox":
-                    $this->contents["sidebox"] = $content["content"];
                 case "contact":
                     $contentArray = json_decode($content["content"], true);
                     $this->contents["emailAddress"] = $contentArray["email"];
                     $this->contents["emailDescription"] = $contentArray["description"];    
+                    break;
+                case "sidebox":
+                    $this->contents["sidebox"] = $content["content"];
+                    break;
                 case "facebook":
                     $this->contents["facebook"] = $content["content"];    
+                    break;
                 case "twitter":
                     $this->contents["twitter"] = $content["content"];
+                    break;
                 case "youtube":
                     $this->contents["youtube"] = $content["content"];
+                    break;
                 case "googleplus":
                     $this->contents["googleplus"] = $content["content"];
+                    break;
                 case "linkedin":
                     $this->contents["linkedin"] = $content["content"];
+                    break;
+                case "github":
+                    $this->contents["github"] = $content["content"];
+                    break;
             }
         }        
         
@@ -1025,6 +1043,8 @@ class ControllerAdmin extends Controller
             $this->contents["twitter"] = !empty($twitterError) ? $twitterError : $this->contents["twitter"];
             $this->contents["youtube"] = !empty($youtubeError) ? $youtubeError : $this->contents["youtube"];
             $this->contents["googleplus"] = !empty($googleplusError) ? $googleplusError : $this->contents["googleplus"];
+            $this->contents["linkedin"] = !empty($linkedinError) ? $linkedinError : $this->contents["linkedin"];
+            $this->contents["github"] = !empty($githubError) ? $githubError : $this->contents["github"];
         }
         
         //set messeges for user

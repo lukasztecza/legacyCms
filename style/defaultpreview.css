@@ -1,7 +1,20 @@
+/* Overall */
+@font-face {
+    font-family: "LatoWebLight";
+    src: url("fonts/Lato-Light.eot"); /* IE9 Compat Modes */
+    src: url("fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("fonts/Lato-Light.woff2") format("woff2"), /* Modern Browsers */
+         url("fonts/Lato-Light.woff") format("woff"), /* Modern Browsers */
+         url("fonts/Lato-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
 html {
-    background-image: url("graphics/background.jpg");
+    background-image: url("graphics/defaultBackground.jpg");
     background-attachment: fixed;
-    background-size: cover;
+    background-size: center center;
     background-repeat: no-repeat;
 }
 
@@ -10,7 +23,7 @@ html, html * {
     border: none;
     padding: 0;
     font-size: 20px;
-    font-family: sans-serif;
+    font-family: "LatoWebLight", "Lucida Grande", sans-serif;
 }
 
 body > div.previewContent {
@@ -26,28 +39,31 @@ body > div.previewContent > img {
 body > div.previewContent > a {
     display: inline-block;
     padding: 8px 10px;
-    border-top: 1px solid #5fb2f7;
-    border-right: 1px solid #1f72c7;
-    border-bottom: 1px solid #1f72c7;
-    border-left: 1px solid #5fb2f7;
-    background: #3f92e7;
+    border-top: 1px solid #f6f6f6;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-left: 1px solid #f6f6f6;
+    background: #ececec;
     text-decoration: none;
-    color: #fff;
+    color: #000000;
+    -moz-transition: background 0.7s, color 0.7s;
+    -webkit-transition: background 0.7s, color 0.7s;
+    -o-transition: background 0.7s, color 0.7s;
+    transition: background 0.7s, color 0.7s;
 }
 
 body > div.previewContent > a:hover {
-    background: #4fa2f7;
+    background: #e6e6e6;
+    color: coral;
 }
 
 body > div.previewContent > a:active {
-    border: 1px solid #4fa2f7;
-    background: #4fa2f7;
+    border: 1px solid #e6e6e6;
 }
 
 @media screen and (max-width: 640px) {
     html {
         background-image: none;
-        background-color: lightblue;
     }
     
     body > div.previewContent > a {
