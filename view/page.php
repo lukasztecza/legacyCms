@@ -15,7 +15,7 @@
     <!--[if gt IE 8]><!-->
         <script>
             //for chrome smooth unfade effect, add only not for mobile
-            //document.querySelector("body").style.visibility = "hidden";            
+            document.querySelector("body").style.visibility = "hidden";            
         </script>
     <!--<![endif]-->
     

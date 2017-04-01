@@ -22,7 +22,7 @@ class Config
     const DB_USER = "your_database_user";
     
     /** Database password */
-    const DB_PASSWORD = "your_database_password";   
+    const DB_PASSWORD = "your_database_password";
         
     /** Developer's email */
     const DEV_EMAIL = "developers_email@a.com";
@@ -83,7 +83,7 @@ class Config
 //        "script/side.js",
 //        "script/simple.js",
 //        "script/win.js",
-//        "script/default.js",
+        "script/default.js",
 //        "script/elegant.js"
     );
     

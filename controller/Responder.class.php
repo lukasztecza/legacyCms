@@ -53,6 +53,7 @@ class Responder
         if (empty($_POST)) {
             $file = fopen($cacheFile, 'w');
             fwrite($file, ob_get_contents());
+            chmod($cacheFile, 0777);
             fclose($file);
         }
     }

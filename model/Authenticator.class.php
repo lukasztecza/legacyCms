@@ -132,8 +132,8 @@ class Authenticator extends Model
         //if email is valid create an account and send email to user
         if ($createResult === "") {
             $login = substr($createEmail, 0, strpos($createEmail, "@"));
-            $newPassword = md5(mcrypt_create_iv(10, MCRYPT_DEV_URANDOM));
-            $salt = md5(mcrypt_create_iv(24, MCRYPT_DEV_URANDOM));
+            $newPassword = $this->getRandomString();
+            $salt = $this->getRandomString();
             $passwordHash = hash("sha256", $newPassword . $salt);
             $stmt = $conn->prepare("
                 INSERT INTO `user` (`login`, `email`, `password_hash`, `salt`, `group`)
@@ -243,8 +243,8 @@ class Authenticator extends Model
         }
         
         //user is confirmed so create new password, salt and password hash
-        $newPassword = md5(mcrypt_create_iv(10, MCRYPT_DEV_URANDOM));
-        $salt = md5(mcrypt_create_iv(24, MCRYPT_DEV_URANDOM));
+        $newPassword = $this->getRandomString();
+        $salt = $this->getRandomString();
         $passwordHash = hash("sha256", $newPassword . $salt);
         $this->generateNewPassword(array(
             "email" => $confirmed["email"],
@@ -282,7 +282,7 @@ class Authenticator extends Model
         }
         
         //create salt and password hash
-        $salt = md5(mcrypt_create_iv(24, MCRYPT_DEV_URANDOM));
+        $salt = $this->getRandomString();
         $passwordHash = hash("sha256", $newPassword . $salt);
         if ($_SESSION["authenticated"]["email"]) {
             $this->generateNewPassword(array(
@@ -359,4 +359,13 @@ class Authenticator extends Model
         ));
     }
     
+    private function getRandomString() {
+        if (function_exists('mcrypt_create_iv')) {
+            return md5(mcrypt_create_iv(10, MCRYPT_DEV_URANDOM));
+        } elseif (function_exists('random_bytes')) {
+            return md5(random_bytes(10));
+        } else {
+            return md5(rand(1,1000000));
+        }
+    }
 }
