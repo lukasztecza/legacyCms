@@ -12,9 +12,9 @@
 }
 
 html {
-    background-image: url("graphics/background.jpg");
+    background-image: url("graphics/defaultBackground.jpg");
     background-attachment: fixed;
-    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 
@@ -83,10 +83,10 @@ body > header > a {
 body > nav {
     width: 80%;
     overflow: hidden;
-    background: #3f92e7;
-    -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+    background: #ececec;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.75);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.75);
+    box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.75);
     text-align: center;
     padding: 0 10%;
 }
@@ -101,11 +101,11 @@ body > nav > ul {
 body > nav > ul > li {
     float: left;
     width: calc(20% - 2px);
-    border-top: 1px solid #5fb2f7;
-    border-right: 1px solid #1f72c7;
-    border-bottom: 1px solid #1f72c7;
-    border-left: 1px solid #5fb2f7;
-    background: #3f92e7;
+    border-top: 1px solid #f6f6f6;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-left: 1px solid #f6f6f6;
+    background: #ececec;
     overflow: hidden;
     -moz-transition: background 0.7s;
     -webkit-transition: background 0.7s;
@@ -117,27 +117,34 @@ body > nav > ul > li > a {
     display: block;
     position: relative;
     padding: 10px;
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     text-align: center;
+    -moz-transition: color 0.7s;
+    -webkit-transition: color 0.7s;
+    -o-transition: color 0.7s;
+    transition: color 0.7s;
 }
 
 body > nav > ul > li:hover {
-    background: #4fa2f7;
+    background: #e6e6e6;
+}
+
+body > nav > ul > li:hover > a{
+    color: coral;
 }
 
 body > nav > ul > li:active {
-    border: 1px solid #4fa2f7;
-    background: #4fa2f7;
+    border: 1px solid #e6e6e6;
 }
 
 body > nav > ul > li.active {
-    background: #4fa2f7;
+    background: #e6e6e6;
 }
 
 /* Submenu navigation */
 body > section > nav {
-    background: #3f92e7;
+    background: #ececec;
     margin-bottom: 5px;
     width: 100%;
 }
@@ -151,11 +158,11 @@ body > section > nav > ul {
 body > section > nav > ul > li {
     float: left;
     width: calc(20% - 2px);
-    border-top: 1px solid #5fb2f7;
-    border-right: 1px solid #1f72c7;
-    border-bottom: 1px solid #1f72c7;
-    border-left: 1px solid #5fb2f7;
-    background: #3f92e7;
+    border-top: 1px solid #f6f6f6;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-left: 1px solid #f6f6f6;
+    background: #ececec;
     overflow: hidden;
     -moz-transition: background 0.7s;
     -webkit-transition: background 0.7s;
@@ -167,22 +174,26 @@ body > section > nav > ul > li > a {
     display: block;
     position: relative;
     padding: 10px;
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     text-align: center;
 }
 
 body > section > nav > ul > li:hover {
-    background: #4fa2f7;
+    background: #e6e6e6;
+}
+
+body > section > nav > ul > li:hover > a {
+    color: coral;
 }
 
 body > section > nav > ul > li:active {
-    border: 1px solid #4fa2f7;
-    background: #4fa2f7;
+    border: 1px solid #e6e6e6;
+    background: #e6e6e6;
 }
 
 body > section > nav > ul > li.active {
-    background: #4fa2f7;
+    background: #e6e6e6;
 }
 
 /*  Navigation special behaviour */
@@ -243,7 +254,7 @@ body > section {
 
 body > section > .sectionBar {
     height: 5px;
-    background: #3f92e7;
+    background: #ececec;
 }
 
 body > section > .sectionBar:first-child {
@@ -303,13 +314,33 @@ article > .gallery > .galleryRow > .galleryCell > a > img:hover {
 /* List */
 article > .list > li {
     clear: both;
-    border-top: 1px solid #3f92e7;
+    border-top: 1px solid #ececec;
     padding: 5px 0;
 }
 
 article > .list > li:last-child {
     margin-bottom: 5px;
-    border-bottom: 1px solid #3f92e7;
+    border-bottom: 1px solid #ececec;
+}
+
+article > .list > li > a {
+    text-decoration: none;
+    padding-left: 20px;
+    background-image: url("graphics/link.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    -moz-transition: color 0.7s;
+    -webkit-transition: color 0.7s;
+    -o-transition: color 0.7s;
+    transition: color 0.7s;
+}
+
+article > .list > li > a:hover {
+    color: coral;
+}
+
+article > .list > li > a {
+    text-decoration: none;
 }
 
 article > ul {
@@ -333,11 +364,11 @@ article > .table > table > caption {
 
 article > .table > table th {
     padding: 10px 5px;
-    background-color: #3f92e7;
+    background-color: #ececec;
 }
 
 article > .table > table td {
-    border-bottom: 1px solid #3f92e7;
+    border-bottom: 1px solid #ececec;
 }
 
 article > .table > table, td {
@@ -369,28 +400,29 @@ form > fieldset > label > textarea {
 
 form > fieldset > input[type=submit] {
     width: 100%;
-    border-top: 1px solid #5fb2f7;
-    border-right: 1px solid #1f72c7;
-    border-bottom: 1px solid #1f72c7;
-    border-left: 1px solid #5fb2f7;
-    background: #3f92e7;
+    border-top: 1px solid #f6f6f6;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-left: 1px solid #f6f6f6;
+    background: #ececec;
     padding: 8px 0 8px 0;
-    color: #fff;
+    color: #000000;
     text-align: center;
-    -moz-transition: background 0.7s;
-    -webkit-transition: background 0.7s;
-    -o-transition: background 0.7s;
-    transition: background 0.7s;
+    -moz-transition: background 0.7s, color 0.7s;
+    -webkit-transition: background 0.7s, color 0.7s;
+    -o-transition: background 0.7s, color 0.7s;
+    transition: background 0.7s, color 0.7s;
 }
 
 form > fieldset > input[type=submit]:hover {
-    background: #4fa2f7;
+    background: #e6e6e6;
     cursor: pointer;
+    color: coral;
 }
 
 form > fieldset > input[type=submit]:active {
-    border: 1px solid #4fa2f7;
-    background: #4fa2f7;
+    border: 1px solid #e6e6e6;
+    background: #e6e6e6;
 }
 
 /* Search bar */
@@ -413,6 +445,23 @@ body > footer {
     clear: both;
     margin-bottom: 5px;
     overflow: hidden;
+}
+
+/* File */
+article > ul > li > a[href*="&request=download&file="] {
+    text-decoration: none;
+    padding-left: 20px;
+    background-image: url("graphics/download.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    -moz-transition: color 0.7s;
+    -webkit-transition: color 0.7s;
+    -o-transition: color 0.7s;
+    transition: color 0.7s;
+}
+
+article > ul > li > a[href*="&request=download&file="]:hover {
+    color: coral;
 }
 
 /* Slider buttons hover */
@@ -475,7 +524,6 @@ body > footer {
     
     html {
         background-image: none;
-        background-color: lightblue;
     }
     
     body {

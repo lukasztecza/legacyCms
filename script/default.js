@@ -392,7 +392,7 @@
             menuButton.style.backgroundSize = "contain";
             menuButton.style.backgroundPosition = "center";
             menuButton.style.backgroundRepeat = "no-repeat";
-            menuButton.style.backgroundImage = "url('style/graphics/navigation.jpg')";
+            menuButton.style.backgroundImage = "url('style/graphics/defaultNavigation.jpg')";
             //hide menu at the begining
             tools.hide(navigation.getElementsByTagName("ul")[0]);
             menuButton.setAttribute("data-folded", "true");
@@ -513,7 +513,7 @@
             sideboxButton.style.backgroundSize = "cover";
             sideboxButton.style.backgroundPosition = "center";
             sideboxButton.style.backgroundRepeat = "no-repeat";
-            sideboxButton.style.backgroundImage = "url('style/graphics/sidebox.jpg')";
+            sideboxButton.style.backgroundImage = "url('style/graphics/defaultSidebox.jpg')";
             sideboxUpButton.id = "sideboxUpButton"; 
             sideboxDownButton.id = "sideboxDownButton"; 
             sideboxUpButton.style.position = sideboxDownButton.style.position = "absolute";
@@ -524,18 +524,18 @@
             sideboxUpButton.style.backgroundSize = sideboxDownButton.style.backgroundSize = "100% 100%";
             sideboxUpButton.style.backgroundPosition = sideboxDownButton.style.backgroundPosition = "center";
             sideboxUpButton.style.backgroundRepeat = sideboxDownButton.style.backgroundRepeat = "no-repeat";
-            sideboxUpButton.style.backgroundImage = "url('style/graphics/sideboxUp.png')";
-            sideboxDownButton.style.backgroundImage = "url('style/graphics/sideboxDown.png')";
+            sideboxUpButton.style.backgroundImage = "url('style/graphics/defaultSideboxUp.png')";
+            sideboxDownButton.style.backgroundImage = "url('style/graphics/defaultSideboxDown.png')";
             
             //change style of sidebox
             sidebox.style.position = "fixed";     
             sidebox.style.width = boxWidth;
             sidebox.style.height = boxWidth;
             sidebox.style.right = - boxWidth - 10;
-            sidebox.style.top = 25;
-            sidebox.style.backgroundColor = "#4fa2f7";
+            sidebox.style.top = 75;
+            sidebox.style.backgroundColor = "#ffffff";
             sidebox.style.padding = 5;
-            sidebox.style.boxShadow = "0 0 1px green";
+            sidebox.style.boxShadow = "0px 0px 1px 1px white";
             sidebox.setAttribute("data-folded", "true");
             sidebox.style.zIndex = 3;
             sidebox.appendChild(sideboxButton);
@@ -658,17 +658,17 @@
             contactButton.style.backgroundSize = "cover";
             contactButton.style.backgroundPosition = "center";
             contactButton.style.backgroundRepeat = "no-repeat";
-            contactButton.style.backgroundImage = "url('style/graphics/contact.jpg')";
+            contactButton.style.backgroundImage = "url('style/graphics/defaultContact.jpg')";
             contactBox.style.position = "fixed";
             contactBox.style.width = boxWidth;
             contactBox.style.right = - boxWidth - 10;
             if (document.querySelector("section > #sidebox") === null) {
                 topCorrection += 60;
             }
-            contactBox.style.top = 85 - topCorrection;
-            contactBox.style.backgroundColor = "#4fa2f7";
+            contactBox.style.top = 135 - topCorrection;
+            contactBox.style.backgroundColor = "#ffffff";
             contactBox.style.padding = 5;
-            contactBox.style.boxShadow = "0 0 1px green";
+            contactBox.style.boxShadow = "0px 0px 1px 1px white";
             contactBox.setAttribute("data-folded", "true");
             contactBox.style.zIndex = 4;
             contactBox.appendChild(contactButton);
@@ -860,7 +860,7 @@
             searchButton.style.backgroundSize = "cover";
             searchButton.style.backgroundPosition = "center";
             searchButton.style.backgroundRepeat = "no-repeat";
-            searchButton.style.backgroundImage = "url('style/graphics/search.jpg')";
+            searchButton.style.backgroundImage = "url('style/graphics/defaultSearch.jpg')";
             searchBox.style.position = "fixed";
             searchBox.style.width = boxWidth;
             searchBox.style.right = - boxWidth - 10;
@@ -870,10 +870,10 @@
             if (document.querySelector("section > #contact") === null) {
                 topCorrection += 60;
             }
-            searchBox.style.top = 145 - topCorrection;
-            searchBox.style.backgroundColor = "#4fa2f7";
+            searchBox.style.top = 195 - topCorrection;
+            searchBox.style.backgroundColor = "#ffffff";
             searchBox.style.padding = 5;
-            searchBox.style.boxShadow = "0 0 1px green";
+            searchBox.style.boxShadow = "0px 0px 1px 1px white";
             searchBox.style.zIndex = 5;
             searchBox.setAttribute("data-folded", "true");
             searchBox.appendChild(searchButton);
@@ -968,7 +968,7 @@
                     }
                 }
                 additionalElementslength = additionalElements.length;
-                element.style.top = 205 + socialMedialength * 60 - topCorrection;
+                element.style.top = 255 + socialMedialength * 60 - topCorrection;
             }
         }
     }
