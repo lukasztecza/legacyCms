@@ -69,6 +69,7 @@ class Config
 //        "style/side.css",
 //        "style/simple.css",
 //        "style/win.css",
+//        "style/blue.css",        
         "style/default.css",
 //        "style/elegant.css"
     );
@@ -83,6 +84,7 @@ class Config
 //        "script/side.js",
 //        "script/simple.js",
 //        "script/win.js",
+//        "script/blue.js",        
         "script/default.js",
 //        "script/elegant.js"
     );
