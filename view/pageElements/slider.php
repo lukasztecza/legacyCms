@@ -1,14 +1,14 @@
 <?php foreach ($data->content as $element): ?>
     <?php switch ($element["type"]): case "search": ?>
         <?php Controller::load("searchbarForm", array("description" => $element["content"])); ?>
-    <?php break;case "sidebox": ?>
-        <div id="sidebox"><div><pre style="white-space:pre-wrap;"><?php echo Dictionary::get($element["content"]); ?></pre></div></div>
     <?php break;case "contact": ?>
         <?php Controller::load("emailForm", array(
             "email" => $element["content"]["email"],
             "description" => $element["content"]["description"],
             "buttonId" => $data->buttonId
         )); ?>
+    <?php break;case "sidebox": ?>
+        <div id="sidebox"><div><pre style="white-space:pre-wrap;"><?php echo Dictionary::get($element["content"]); ?></pre></div></div>
     <?php break;case "facebook": ?>
         <a id="facebook" href="<?php echo $element["content"]; ?>" target="_blank">
             <img

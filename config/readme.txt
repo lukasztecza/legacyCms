@@ -94,12 +94,12 @@ and you have an email account "developers_email@a.com".
     VALUES (1, 'search', '')
     ON DUPLICATE KEY UPDATE `id` = 1;
     INSERT INTO `slider` (`id`, `type`, `content`) 
-    VALUES (2, 'sidebox', '')
+    VALUES (2, 'contact', '{"email":"","description":""}')
     ON DUPLICATE KEY UPDATE `id` = 2;
-    INSERT INTO `slider` (`id`, `type`, `content`) 
-    VALUES (3, 'contact', '{"email":"","description":""}')
+    INSERT INTO `slider` (`id`, `type`, `content`)
+    VALUES (3, 'sidebox', '')
     ON DUPLICATE KEY UPDATE `id` = 3;
-    INSERT INTO `slider` (`id`, `type`, `content`) 
+    INSERT INTO `slider` (`id`, `type`, `content`)
     VALUES (4, 'facebook', '')
     ON DUPLICATE KEY UPDATE `id` = 4;
     INSERT INTO `slider` (`id`, `type`, `content`) 

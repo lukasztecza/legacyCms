@@ -922,9 +922,6 @@ class ControllerAdmin extends Controller
                     case ($fieldName === "search"):
                         $slider["search"] = $searchbarError = $this->secure($value);
                         break;
-                    case ($fieldName === "sidebox"):
-                        $slider["sidebox"] = $sideboxError = $this->secure($value);
-                        break;
                     case ($fieldName === "contact"):
                         $filedContent = $fieldElements[1];
                         if ($filedContent === "description") {
@@ -951,6 +948,9 @@ class ControllerAdmin extends Controller
                                 $emailAddressError = $this->secure($value);
                             }
                         }
+                        break;
+                    case ($fieldName === "sidebox"):
+                        $slider["sidebox"] = $sideboxError = $this->secure($value);
                         break;
                     case ($fieldName === "facebook"):
                         $slider["facebook"] = $facebookError = $this->secure($value);
@@ -1002,13 +1002,13 @@ class ControllerAdmin extends Controller
                 case "search":
                     $this->contents["search"] = $content["content"];
                     break;
-                case "sidebox":
-                    $this->contents["sidebox"] = $content["content"];
-                    break;
                 case "contact":
                     $contentArray = json_decode($content["content"], true);
                     $this->contents["emailAddress"] = $contentArray["email"];
                     $this->contents["emailDescription"] = $contentArray["description"];    
+                    break;
+                case "sidebox":
+                    $this->contents["sidebox"] = $content["content"];
                     break;
                 case "facebook":
                     $this->contents["facebook"] = $content["content"];    

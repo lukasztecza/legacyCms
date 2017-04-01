@@ -177,6 +177,10 @@ body > section > nav > ul > li > a {
     color: #000000;
     text-decoration: none;
     text-align: center;
+    -moz-transition: color 0.7s;
+    -webkit-transition: color 0.7s;
+    -o-transition: color 0.7s;
+    transition: color 0.7s;
 }
 
 body > section > nav > ul > li:hover {
@@ -189,7 +193,6 @@ body > section > nav > ul > li:hover > a {
 
 body > section > nav > ul > li:active {
     border: 1px solid #e6e6e6;
-    background: #e6e6e6;
 }
 
 body > section > nav > ul > li.active {
@@ -335,6 +338,10 @@ article > .list > li > a {
     transition: color 0.7s;
 }
 
+article > .list > li > a:visited {
+    color: blue;
+}
+
 article > .list > li > a:hover {
     color: coral;
 }
@@ -389,13 +396,24 @@ form > fieldset  > legend {
 form > fieldset > label > textarea,
 form > fieldset > label > input {
     width: 100%;
+    outline: 1px solid #ececec;
+    color: black;
     margin-bottom: 5px;
     padding: 5px;
+    -moz-transition: outline 0.7s;
+    -webkit-transition: outline 0.7s;
+    -o-transition: outline 0.7s;
+    transition: outline 0.7s;
 }
 
 form > fieldset > label > textarea {
     resize: vertical;
     min-height: 150px;
+}
+
+form > fieldset > label > textarea:focus,
+form > fieldset > label > input:focus {
+    outline: 1px solid coral;
 }
 
 form > fieldset > input[type=submit] {
@@ -422,13 +440,32 @@ form > fieldset > input[type=submit]:hover {
 
 form > fieldset > input[type=submit]:active {
     border: 1px solid #e6e6e6;
-    background: #e6e6e6;
 }
 
 /* Search bar */
 #search ul {
     margin:0 40px;
-    list-style-type: circle;
+    list-style-type: none;
+}
+
+#search ul > li > a {
+    text-decoration: none;
+    padding-left: 20px;
+    background-image: url("graphics/link.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    -moz-transition: color 0.7s;
+    -webkit-transition: color 0.7s;
+    -o-transition: color 0.7s;
+    transition: color 0.7s;
+}
+
+#search ul > li > a:visited {
+    color: blue;
+}
+
+#search ul > li > a:hover {
+    color: coral;
 }
 
 /* Footer */
@@ -458,6 +495,10 @@ article > ul > li > a[href*="&request=download&file="] {
     -webkit-transition: color 0.7s;
     -o-transition: color 0.7s;
     transition: color 0.7s;
+}
+
+article > ul > li > a[href*="&request=download&file="]:visited {
+    color: blue;
 }
 
 article > ul > li > a[href*="&request=download&file="]:hover {
