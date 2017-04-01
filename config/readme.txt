@@ -148,8 +148,8 @@ and you have an email account "developers_email@a.com".
     RedirectMatch 301 ^/m/.*$ http://www.your_domain.com/your_directory/
   
 8) Insert row to the user table in your database:
-    INSERT INTO `user` (`login`, `email`, `password_hash`, `salt`, `group`)
-    VALUES ('developer', 'developers_email@a.com', '', '', 'admin')
+    INSERT INTO `user` (`id`, `login`, `email`, `password_hash`, `salt`, `group`)
+    VALUES (1, 'developer', 'developers_email@a.com', '', '', 'admin')
     ON DUPLICATE KEY UPDATE `id` = 1;
 
 9) Type "http://www.your_domain.com/your_directory/ in browser url bar. In right lower corner of the page there is invisible admin link 

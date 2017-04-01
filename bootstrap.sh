@@ -96,8 +96,8 @@ CREATE TABLE IF NOT EXISTS `user` (
     `group` VARCHAR(255) COLLATE utf8_bin NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-INSERT INTO `user` (`login`, `email`, `password_hash`, `salt`, `group`)
-VALUES ('developer', 'developers_email@a.com', '', '', 'admin')
+INSERT INTO `user` (`id`, `login`, `email`, `password_hash`, `salt`, `group`)
+VALUES (1, 'developer', 'developers_email@a.com', '', '', 'admin')
 ON DUPLICATE KEY UPDATE `id` = 1;
 
 CREATE TABLE IF NOT EXISTS `code` (
@@ -175,7 +175,6 @@ INSERT INTO `slider` (`id`, `type`, `content`)
 VALUES (9, 'github', '')
 ON DUPLICATE KEY UPDATE `id` = 9;
 
-
 CREATE TABLE IF NOT EXISTS `script` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `string` TEXT COLLATE utf8_general_ci NOT NULL,
@@ -191,3 +190,5 @@ sed -i "s/your_database_user/$MYSQL_USER/" /vagrant/config/Config.class.php
 sed -i "s/your_database_password/$MYSQL_USER_PASSWORD/" /vagrant/config/Config.class.php
 sed -i "s/your_directory//" /vagrant/config/Config.class.php
 sed -i "s/www\.your_domain\.com\//$HOST:$PORT/" /vagrant/config/Config.class.php
+
+echo "[Info] Your project will be accessible via url: http://$HOST:$PORT"
