@@ -3,13 +3,21 @@
     //store current image
     var currentImage,
         allImages = [],
-        inProgress = false;
+        inProgress = false,
+        zoomBoxOpen = false;
     
+    var closeZoomBox = function closeZoomBox() {
+        if (!inProgress && zoomBoxOpen) {
+            inProgress = true;
+            tools.fade(document.getElementById("zoomElement"), function() {inProgress = false; zoomBoxOpen = false});
+        }
+    }
+
     //zooming behaviour
     var zoomBehaviour = function zoomBehaviour(event) {
         event.preventDefault();
         //block functions when executing
-        if (!inProgress) {
+        if (!inProgress && !zoomBoxOpen) {
             inProgress = true;
             //get image path and unfade zoom element
             var image = this.children[0].getAttribute("src"),
@@ -20,21 +28,16 @@
             image = image.replace("/med/", "/max/");
             zoomItem.style.backgroundImage = "url('" +  image + "')";
             zoomElement.style.zIndex = 10;
-            tools.unfade(zoomElement, function() {inProgress = false;});
+            tools.unfade(zoomElement, function() {inProgress = false; zoomBoxOpen = true});
             //add closing zoom element on click
-            zoomElement.onclick = function() {
-                if (!inProgress) {
-                    inProgress = true;
-                    tools.fade(this, function() {inProgress = false;});
-                }
-            }
+            zoomElement.addEventListener('click', closeZoomBox);
         }
     }
     
     //swithching images behaviour
     var switchImage = function switchImage(direction) {
         //block functions when executing
-        if (!inProgress) {
+        if (!inProgress && zoomBoxOpen) {
             inProgress = true;
             tools.fade(zoomItem, function() {
                 //get current image
@@ -62,6 +65,24 @@
                 zoomItem.style.backgroundImage = "url('" +  image + "')";
                 tools.unfade(zoomItem, function() {inProgress = false;});
             });
+        }
+    }
+
+    //switch image on left/right key hit
+    var switchImageLeftRight = function switchImageLeftRight(event) {
+        var keyCode = event.keyCode || event.which,
+            key = {right: 39, left: 37, esc: 27};
+
+        switch(keyCode){
+            case key.right:
+                switchImage("next");
+                break;
+            case key.left: 
+                switchImage("back");
+                break;
+            case key.esc:
+                closeZoomBox();
+                break;
         }
     }
 
@@ -152,7 +173,7 @@
                 //store ids of every image
                 allImages.push(galleryCells[length].id);
             }
-            
+
             //add navigation buttons behaviour
             nextButton.addEventListener("click", function(event) {
                 event.stopPropagation();
@@ -162,6 +183,7 @@
                 event.stopPropagation();
                 switchImage("back");
             });
+            window.addEventListener('keydown', switchImageLeftRight);
         }
     }
     
@@ -175,6 +197,7 @@
             while (length--) {
                 galleryCells[length].children[0].removeEventListener("click", zoomBehaviour);
             }
+            window.removeEventListener("keydown", switchImageLeftRight);
         }
     }
     
