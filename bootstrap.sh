@@ -89,48 +89,48 @@ fi
 mysql -u "$MYSQL_USER" -p"$MYSQL_USER_PASSWORD" -h $MYSQL_HOST $MYSQL_DATABASE <<"EOL"
 CREATE TABLE IF NOT EXISTS `user` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `login` VARCHAR(32) COLLATE utf8_bin NOT NULL,
-    `email` VARCHAR(32) COLLATE utf8_bin NOT NULL,
-    `password_hash` VARCHAR(255) COLLATE utf8_bin NOT NULL,
-    `salt` VARCHAR(255) COLLATE utf8_bin NOT NULL,
-    `group` VARCHAR(255) COLLATE utf8_bin NOT NULL,
+    `login` VARCHAR(32) COLLATE utf8_general_ci NOT NULL,
+    `email` VARCHAR(32) COLLATE utf8_general_ci NOT NULL,
+    `password_hash` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    `salt` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    `group` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 INSERT INTO `user` (`id`, `login`, `email`, `password_hash`, `salt`, `group`)
 VALUES (1, 'developer', 'developers_email@a.com', '', '', 'admin')
 ON DUPLICATE KEY UPDATE `id` = 1;
 
 CREATE TABLE IF NOT EXISTS `code` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `code` VARCHAR(2) COLLATE utf8_bin NOT NULL,
-    `image` VARCHAR(32) COLLATE utf8_bin NOT NULL,
+    `code` VARCHAR(2) COLLATE utf8_general_ci NOT NULL,
+    `image` VARCHAR(32) COLLATE utf8_general_ci NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `dictionary` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `base` TEXT COLLATE utf8_general_ci NOT NULL,
-    `code` VARCHAR(2) COLLATE utf8_bin NOT NULL,
+    `code` VARCHAR(2) COLLATE utf8_general_ci NOT NULL,
     `translation` TEXT COLLATE utf8_general_ci NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `menu` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `button_id` INT(11) NOT NULL,
     `parent_button_id` INT(11) NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `button` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(32) COLLATE utf8_general_ci NOT NULL,
     `is_active` BIT(1) NOT NULL,
-    `image_first` VARCHAR(32) COLLATE utf8_bin DEFAULT NULL,
-    `image_second` VARCHAR(32) COLLATE utf8_bin DEFAULT NULL,
+    `image_first` VARCHAR(32) COLLATE utf8_general_ci DEFAULT NULL,
+    `image_second` VARCHAR(32) COLLATE utf8_general_ci DEFAULT NULL,
     `secured` BIT(1) NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `article` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -139,14 +139,14 @@ CREATE TABLE IF NOT EXISTS `article` (
     `content` TEXT COLLATE utf8_general_ci NOT NULL,
     PRIMARY KEY (`id`),
     KEY `button_id` (`button_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `slider` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(255) COLLATE utf8_bin NOT NULL,
+    `type` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
     `content` TEXT COLLATE utf8_general_ci NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 INSERT INTO `slider` (`id`, `type`, `content`) 
 VALUES (1, 'search', '')
 ON DUPLICATE KEY UPDATE `id` = 1;
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `script` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `string` TEXT COLLATE utf8_general_ci NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 EOL
 
 # Set config/Config.class.php file
