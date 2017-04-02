@@ -102,7 +102,8 @@ class Controller
         "xlsx" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         "ppt" => "application/vnd.ms-powerpoint",
         "pptx" => "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-        "mp3" => "audio/mpeg"
+        "mp3" => "audio/mpeg",
+        "wav" => "audio/x-wav"
     );
     
     /**
