@@ -57,6 +57,11 @@ apt-get install -y php"$PHP_VERSION" php-curl php-mysql php-gd
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/"$PHP_VERSION"/apache2/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php/"$PHP_VERSION"/apache2/php.ini
 
+# Allow large file uploads
+sed -i "s/memory_limit = .*/memory_limit = 32M/" /etc/php/"$PHP_VERSION"/apache2/php.ini
+sed -i "s/upload_max_filesize = .*/upload_max_filesize = 16M/" /etc/php/"$PHP_VERSION"/apache2/php.ini
+sed -i "s/post_max_size = .*/post_max_size = 24M/" /etc/php/"$PHP_VERSION"/apache2/php.ini
+
 # Allow usage of .htaccess files inside /var/www/html
 cat <<EOL >> /etc/apache2/apache2.conf
 <Directory /var/www/html>
