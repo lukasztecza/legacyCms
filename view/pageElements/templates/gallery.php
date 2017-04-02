@@ -1,6 +1,6 @@
 <div class="gallery" style="display:table;width:100%;">
     <?php $imageNumber = 0; ?>
-    <?php $imageSize = $content["columns"] > 3 ? "min" : ($content["columns"] > 1 ? "med" : "max");?>
+    <?php $imageSize =  $content["columns"] > 2 ? "med" : "max"; ?>
     <?php $allImages = count($content["images"]) ?>
     <?php foreach ($content["images"] as $image): ?>
         <?php $imageNumber++; ?>
