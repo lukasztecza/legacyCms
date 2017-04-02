@@ -877,7 +877,7 @@ class ControllerAdmin extends Controller
                 !array_key_exists($fileExtension, $this->fileCheck) ||
                 $this->fileCheck[$fileExtension] !== mime_content_type($uploadedFile["tmp_name"])
             ) ? "File which You have tried to upload has not got proper extension 
-            (txt, pdf, odt, ods, doc, docx, xls, xlsx, odp, ppt, pptx, mp3) or has got wrong content<br />" : null;
+            (txt, pdf, odt, ods, doc, docx, xls, xlsx, odp, ppt, pptx, mp3, wav) or has got wrong content<br />" : null;
 
             //try to upload
             if (
