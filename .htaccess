@@ -1,4 +1,7 @@
+# Do not allow to index directory
 Options -Indexes
+
+# Set browser caching
 <IfModule mod_headers.c>
     <FilesMatch "\.(jpg|jpeg|png|gif)$">
         Header set Cache-Control "max-age=86400, public"
@@ -9,6 +12,11 @@ Options -Indexes
     <FilesMatch "\.(ttf|woff|woff2|eot)$">
         Header set Cache-Control "max-age=86400, private"
     </FilesMatch>
-    RedirectMatch 301 ^/mobile/.*$ http://www.your_domain.com/your_directory/
-    RedirectMatch 301 ^/m/.*$ http://www.your_domain.com/your_directory/
+</IfModule>
+
+# Redirect mobile to web
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^(m|mobile).your_domain.com/your_directory/ [NC]
+    RewriteRule ^$ http://www.your_domain.com/your_directory/ [L,R=302]
 </IfModule>
