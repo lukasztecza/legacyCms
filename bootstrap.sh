@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 INSERT INTO `user` (`id`, `login`, `email`, `password_hash`, `salt`, `group`)
-VALUES (1, 'developer', 'developers_email@a.com', '', '', 'admin')
+VALUES (1, 'developer', 'vagrant@localhost.localdomain', '', '', 'admin')
 ON DUPLICATE KEY UPDATE `id` = 1;
 
 CREATE TABLE IF NOT EXISTS `code` (
@@ -194,22 +194,18 @@ sed -i "s/your_database_user/$MYSQL_USER/" /vagrant/config/Config.class.php
 sed -i "s/your_database_password/$MYSQL_USER_PASSWORD/" /vagrant/config/Config.class.php
 sed -i "s/your_directory//" /vagrant/config/Config.class.php
 sed -i "s/www\.your_domain\.com\//$HOST:$PORT/" /vagrant/config/Config.class.php
+sed -i "s/developers_email@a.com/vagrant@localhost.localdomain/" /vagrant/config/Config.class.php
 
 # Install and configure sendmail for localhost
 apt-get install -y sendmail
 if ! fgrep vagrant-ubuntu-trusty-64 /etc/hosts; then
     echo "127.0.0.1 localhost localhost.localdomain vagrant-ubuntu-trusty-64" | sudo tee -a /etc/hosts
 fi
-if ! fgrep "include('/etc/mail/tls/starttls.m4')dnl" /etc/mail/sendmail.mc; then
-    echo "include('/etc/mail/tls/starttls.m4')dnl" | sudo tee -a /etc/mail/sendmail.mc
-fi
-if ! fgrep "include('/etc/mail/tls/starttls.m4')dnl" /etc/mail/submit.mc; then
-    echo "include('/etc/mail/tls/starttls.m4')dnl" | sudo tee -a /etc/mail/submit.mc
-fi
-yes Y | sendmailconfig
+sudo yes Y | sendmailconfig
 
 # Restart apache
 service apache2 restart
 
 echo "[Info] Your project will be accessible via url: http://$HOST:$PORT"
-echo "[Info] You can check sent emails in virtual machine in /var/mail/vagrant file (only emails to vagrant@localhost will reach destination)"
+echo "[Info] You can check sent emails in virtual machine in /var/mail/vagrant file"
+echo "[Info] Only emails to vagrant@localhost.localdomain (which is amdin user email) will reach destination"
