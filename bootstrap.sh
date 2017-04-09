@@ -63,7 +63,7 @@ sed -i "s/upload_max_filesize = .*/upload_max_filesize = 16M/" /etc/php/"$PHP_VE
 sed -i "s/post_max_size = .*/post_max_size = 24M/" /etc/php/"$PHP_VERSION"/apache2/php.ini
 
 # Allow usage of .htaccess files inside /var/www/html
-cat > /etc/apache2/apache2.conf <<EOL
+cat >> /etc/apache2/apache2.conf <<EOL
 <Directory /var/www/html>
     Options Indexes FollowSymLinks
     AllowOverride All
