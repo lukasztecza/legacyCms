@@ -63,16 +63,15 @@ sed -i "s/upload_max_filesize = .*/upload_max_filesize = 16M/" /etc/php/"$PHP_VE
 sed -i "s/post_max_size = .*/post_max_size = 24M/" /etc/php/"$PHP_VERSION"/apache2/php.ini
 
 # Allow usage of .htaccess files inside /var/www/html
-cat >> /etc/apache2/apache2.conf <<EOL
+if ! fgrep "/var/www/html" /etc/apache2/apache2.conf; then
+    cat >> /etc/apache2/apache2.conf <<EOL
 <Directory /var/www/html>
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
 </Directory>
 EOL
-
-# Restart apache
-service apache2 restart
+fi
 
 # Change .htaccess file 
 sed -i "s/www.your_domain.com\//$HOST/" /vagrant/.htaccess
@@ -196,4 +195,8 @@ sed -i "s/your_database_password/$MYSQL_USER_PASSWORD/" /vagrant/config/Config.c
 sed -i "s/your_directory//" /vagrant/config/Config.class.php
 sed -i "s/www\.your_domain\.com\//$HOST:$PORT/" /vagrant/config/Config.class.php
 
+# Restart apache
+service apache2 restart
+
 echo "[Info] Your project will be accessible via url: http://$HOST:$PORT"
+echo "[Info] You can check sent emails in virtual machine in /var/mail/vagrant file (only emails to vagrant@localhost will reach destination)"
