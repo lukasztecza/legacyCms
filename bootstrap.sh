@@ -201,7 +201,7 @@ apt-get install -y sendmail
 if ! fgrep vagrant-ubuntu-trusty-64 /etc/hosts; then
     echo "127.0.0.1 localhost localhost.localdomain vagrant-ubuntu-trusty-64" | sudo tee -a /etc/hosts
 fi
-sudo yes Y | sendmailconfig
+yes Y | sendmailconfig
 
 # Restart apache
 service apache2 restart
