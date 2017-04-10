@@ -37,7 +37,7 @@ if ! fgrep ServerName /etc/apache2/apache2.conf; then
     echo "ServerName $HOST" | sudo tee -a /etc/apache2/apache2.conf
 fi
 
-# Set mysql answers and install mysql-server and client
+# Set mysql answers and install mysql-server and mysql-client
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASSWORD"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD"
 apt-get install -y mysql-server-"$MYSQL_VERSION" mysql-client-"$MYSQL_VERSION"
