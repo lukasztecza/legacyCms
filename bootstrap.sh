@@ -37,7 +37,7 @@ if ! fgrep ServerName /etc/apache2/apache2.conf; then
     echo "ServerName $HOST" | sudo tee -a /etc/apache2/apache2.conf
 fi
 
-# Set mysql answers and install mysql-server
+# Set mysql answers and install mysql-server and client
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASSWORD"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD"
 apt-get install -y mysql-server-"$MYSQL_VERSION" mysql-client-"$MYSQL_VERSION"
@@ -47,11 +47,8 @@ if ! fgrep key_buffer_size /etc/mysql/my.cnf; then
     echo 'key_buffer_size = 16M' | sudo tee -a /etc/mysql/my.cnf
 fi
 
-# Install mysql-client
-apt-get install -y mysql-client-"$MYSQL_VERSION"
-
 # Install php and modules
-apt-get install -y php"$PHP_VERSION" php-curl php-mysql php-gd
+apt-get install -y php"$PHP_VERSION" php"$PHP_VERSION"-curl php"$PHP_VERSION"-mysql php"$PHP_VERSION"-gd
 
 # Display all errors for php
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/"$PHP_VERSION"/apache2/php.ini
