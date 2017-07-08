@@ -9,7 +9,11 @@
     var closeZoomBox = function closeZoomBox() {
         if (!inProgress && zoomBoxOpen) {
             inProgress = true;
-            tools.fade(document.getElementById("zoomElement"), function() {inProgress = false; zoomBoxOpen = false});
+            tools.fade(document.getElementById("zoomElement"), function() {
+                inProgress = false;
+                zoomBoxOpen = false;
+                zoomItem.style.backgroundImage = "none";
+            });
         }
     }
 
