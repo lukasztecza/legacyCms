@@ -24,12 +24,11 @@
                 zoomElement = document.getElementById("zoomElement"),
                 zoomItem = document.getElementById("zoomItem");
             currentImage = this.parentNode.id;
-            image = image.replace("/min/", "/max/");
-            image = image.replace("/med/", "/max/");
-            zoomItem.style.backgroundImage = "url('" +  image + "')";
             zoomElement.style.zIndex = 10;
-            tools.unfade(zoomElement, function() {inProgress = false; zoomBoxOpen = true});
+            //change image
+            showImage(image, zoomItem);
             //add closing zoom element on click
+            tools.unfade(zoomElement, function() {zoomBoxOpen = true});
             zoomElement.addEventListener('click', closeZoomBox);
         }
     }
@@ -38,6 +37,7 @@
     var switchImage = function switchImage(direction) {
         //block functions when executing
         if (!inProgress && zoomBoxOpen) {
+            var zoomItem = document.getElementById("zoomItem");
             inProgress = true;
             tools.fade(zoomItem, function() {
                 //get current image
@@ -60,12 +60,22 @@
                 }
                 //change image
                 var image = document.getElementById(currentImage).children[0].children[0].getAttribute("src");
-                image = image.replace("/min/", "/max/");
-                image = image.replace("/med/", "/max/");
-                zoomItem.style.backgroundImage = "url('" +  image + "')";
-                tools.unfade(zoomItem, function() {inProgress = false;});
+                showImage(image, zoomItem);
             });
         }
+    }
+
+    //load and display image
+    var showImage = function showImage(image, zoomItem) {
+        image = image.replace("/min/", "/max/");
+        image = image.replace("/med/", "/max/");
+        var downloadingImage = new Image();
+        downloadingImage.onload = function() {
+            zoomItem.style.backgroundImage = "none";
+            tools.unfade(zoomItem, function() {inProgress = false;});
+            zoomItem.style.backgroundImage = "url('" + this.src + "')";
+        }
+        downloadingImage.src = image;
     }
 
     //switch image on left/right key hit
@@ -115,13 +125,13 @@
             zoomElement.style.right = zoomBackground.style.right = 0;
             zoomElement.style.bottom = zoomBackground.style.bottom = 0;
             zoomElement.style.left = zoomBackground.style.left = 0;
-            zoomItem.style.top = '10%';
-            zoomItem.style.right = '10%';
-            zoomItem.style.bottom = '10%';
-            zoomItem.style.left = '10%';
+            zoomItem.style.top = "10%";
+            zoomItem.style.right = "10%";
+            zoomItem.style.bottom = "10%";
+            zoomItem.style.left = "10%";
             
             //set background of zoom box
-            zoomBackground.style.backgroundColor = 'white';
+            zoomBackground.style.backgroundColor = "white";
             zoomBackground.style.backgroundImage = "url('style/graphics/loading.gif')";
             zoomBackground.style.backgroundRepeat = "no-repeat";
             zoomBackground.style.backgroundPosition = "center";
@@ -217,7 +227,7 @@
 })();
 /** End gallery zooming */
 
-/** Fading links */
+/** Fading page */
 (function() {
     /**
      * added to the begining of the body for chrome smooth unfade and show effect
@@ -238,7 +248,9 @@
         ],
         navigationList = document.querySelector("body > nav > ul").children,
         subnavigationList = document.querySelector("body > section > nav > ul").children,
-        headerLanguages = document.querySelector("header > div").children;
+        headerLanguages = document.querySelector("header > div").children,
+        allImages = document.getElementsByTagName('img'),
+        allImagesObjects = [];
             
     //fade page effect
     var fadePage = function fadePage(link) {
@@ -311,12 +323,30 @@
             }
         }
     }
+
+    var loadGentlyAllImages = function loadGentlyAllImages() {
+        var length = allImages.length,
+            imageSrc;
+        while(length--) {
+            imageSrc = allImages[length].src;
+            allImages[length].src = "style/graphics/loading.gif";
+            allImagesObjects[length] = new Image();
+            allImagesObjects[length].onload = function() {
+                allImages[this.getAttribute('pointer')].src = "";
+                tools.unfade(allImages[this.getAttribute('pointer')]);
+                allImages[this.getAttribute('pointer')].src = this.src;
+            }
+            allImagesObjects[length].src = imageSrc;
+            allImagesObjects[length].setAttribute('pointer', length);
+        }
+    }
     
     //firefox browser go back force to fire javascript
     window.onunload = function() {};
     
     //add fading to links if device is large enough
     if (window.innerWidth > 480) {
+        loadGentlyAllImages();
         unfadePage();
         addFadingEffect();
     } else {
@@ -332,7 +362,7 @@
         }
     });
 })();
-/** End fading links */
+/** End fading page */
 
 /** Stack menu */
 (function() {
