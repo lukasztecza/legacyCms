@@ -72,6 +72,7 @@ fi
 
 # Change .htaccess file 
 sed -i "s/www.your_domain.com\//$HOST/" /vagrant/.htaccess
+sed -i "s/.your_domain.com\//$HOST/" /vagrant/.htaccess
 sed -i "s/your_directory/\//" /vagrant/.htaccess
 
 # Set up database (note no space after -p)
@@ -190,7 +191,7 @@ sed -i "s/your_database_name/$MYSQL_DATABASE/" /vagrant/config/Config.class.php
 sed -i "s/your_database_user/$MYSQL_USER/" /vagrant/config/Config.class.php
 sed -i "s/your_database_password/$MYSQL_USER_PASSWORD/" /vagrant/config/Config.class.php
 sed -i "s/your_directory//" /vagrant/config/Config.class.php
-sed -i "s/www\.your_domain\.com\//$HOST:$PORT/" /vagrant/config/Config.class.php
+sed -i "s/www.your_domain.com\//$HOST:$PORT/" /vagrant/config/Config.class.php
 sed -i "s/developers_email@a.com/vagrant@localhost.localdomain/" /vagrant/config/Config.class.php
 
 # Install and configure sendmail for localhost
