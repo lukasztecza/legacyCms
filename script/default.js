@@ -255,7 +255,33 @@
         headerLanguages = document.querySelector("header > div").children,
         allImages = document.getElementsByTagName('img'),
         allImagesObjects = [];
-            
+
+    //load and unfade all images
+    var loadGentlyAllImages = function loadGentlyAllImages() {
+        var length = allImages.length;
+        while(length--) {
+            allImagesObjects[length] = new Image();
+            allImagesObjects[length].onload = function() {
+                allImages[this.getAttribute('pointer')].src = "";
+                tools.unfade(allImages[this.getAttribute('pointer')]);
+                allImages[this.getAttribute('pointer')].src = this.src;
+            }
+            allImagesObjects[length].src = allImages[length].getAttribute('imageSrc');
+            allImagesObjects[length].setAttribute('pointer', length);
+        }
+    }
+
+    //show loading gif before src is loaded
+    var showLoadingGifForImages = function showLoadingGifForImages() {
+        var length = allImages.length,
+            imagesSrc;
+        while (length--) {
+            imageSrc = allImages[length].src;
+            allImages[length].setAttribute('imageSrc', imageSrc);
+            allImages[length].src = "style/graphics/loading.gif";
+        }
+    }
+
     //fade page effect
     var fadePage = function fadePage(link) {
         //check if browser is IE11 if so unfade fixed elements as they do not unfade like in other browsers
@@ -277,7 +303,8 @@
                 tools.unfade(document.querySelector(fixedElements[length]));
             }
         }
-        tools.unfade(document.querySelector("body"));    
+        showLoadingGifForImages();
+        tools.unfade(document.querySelector("body"), loadGentlyAllImages);
     }
     
     //push page to browser history and call fading page
@@ -328,29 +355,12 @@
         }
     }
 
-    var loadGentlyAllImages = function loadGentlyAllImages() {
-        var length = allImages.length,
-            imageSrc;
-        while(length--) {
-            imageSrc = allImages[length].src;
-            allImages[length].src = "style/graphics/loading.gif";
-            allImagesObjects[length] = new Image();
-            allImagesObjects[length].onload = function() {
-                allImages[this.getAttribute('pointer')].src = "";
-                tools.unfade(allImages[this.getAttribute('pointer')]);
-                allImages[this.getAttribute('pointer')].src = this.src;
-            }
-            allImagesObjects[length].src = imageSrc;
-            allImagesObjects[length].setAttribute('pointer', length);
-        }
-    }
     
     //firefox browser go back force to fire javascript
     window.onunload = function() {};
     
     //add fading to links if device is large enough
     if (window.innerWidth > 480) {
-        loadGentlyAllImages();
         unfadePage();
         addFadingEffect();
     } else {
