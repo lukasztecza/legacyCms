@@ -263,7 +263,9 @@
             allImagesObjects[length] = new Image();
             allImagesObjects[length].onload = function() {
                 allImages[this.getAttribute('pointer')].src = "";
-                tools.unfade(allImages[this.getAttribute('pointer')]);
+                if (allImages.length < 10) {
+                    tools.unfade(allImages[this.getAttribute('pointer')]);
+                }
                 allImages[this.getAttribute('pointer')].src = this.src;
             }
             allImagesObjects[length].src = allImages[length].getAttribute('imageSrc');
