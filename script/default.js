@@ -258,18 +258,16 @@
 
     //load and unfade all images
     var loadGentlyAllImages = function loadGentlyAllImages() {
-        var length = allImages.length;
-        while(length--) {
-            allImagesObjects[length] = new Image();
-            allImagesObjects[length].onload = function() {
+        var length = allImages.length,
+            i = -1;
+        while(++i < length) {
+            allImagesObjects[i] = new Image();
+            allImagesObjects[i].onload = function() {
                 allImages[this.getAttribute('pointer')].src = "";
-                if (allImages.length < 10) {
-                    tools.unfade(allImages[this.getAttribute('pointer')]);
-                }
                 allImages[this.getAttribute('pointer')].src = this.src;
             }
-            allImagesObjects[length].src = allImages[length].getAttribute('imageSrc');
-            allImagesObjects[length].setAttribute('pointer', length);
+            allImagesObjects[i].src = allImages[i].getAttribute('imageSrc');
+            allImagesObjects[i].setAttribute('pointer', i);
         }
     }
 
