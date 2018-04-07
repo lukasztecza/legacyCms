@@ -1,5 +1,5 @@
-# tinyCms
-Tiny cms for simple pages. See config/readme.txt for details.
+# legacyCms
+Leagacy cms for simple pages. See config/readme.txt for details.
 
 ### To run on dev
 - install [virtualbox](https://www.virtualbox.org) and [vagrant](https://www.vagrantup.com/) 

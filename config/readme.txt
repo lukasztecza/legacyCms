@@ -1,7 +1,7 @@
-This is tinyCms project which was developed for pages with minimal requirements such as presentation pages cards etc. 
+This is legacyCms project which was developed for pages with minimal requirements such as presentation pages cards etc. 
 It contains simplified authentication system without possibility to register new user but with possibility to 
 add users by admin who can restrict some resources. It is strongly recommended to consider fully featured framework for 
-larger projects which requires decent level of security as tinyCms uses most basic security methodologies 
+larger projects which requires decent level of security as legacyCms uses most basic security methodologies 
 (no tokens etc. -> see /model/Authenticator.class.php).
 What is covered:
 - Application split according to MVC pattern
@@ -31,7 +31,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 In guide I assume that you have access to the host directory ("/") and have domain pointing to this directory ("http://www.your_domain.com") 
 and you have access to the database host "your_database_host" or with specified port "your_database_host:3306" 
 and you have an email account "developers_email@a.com".
-1) Create "your_directory" directory in your host and copy all tinyCms contents to it (or copy directly to main directory '/' if you want).
+1) Create "your_directory" directory in your host and copy all legacyCms contents to it (or copy directly to main directory '/' if you want).
 2) Create "your_database_name" database with "your_database_user" and "your_database_password" and execute following SQL in it:
     CREATE TABLE IF NOT EXISTS `user` (
         `id` INT(11) NOT NULL AUTO_INCREMENT,
